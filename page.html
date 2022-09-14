@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- Copyright 2022 Time Service B.V. All rights reserved -->
+    <meta name="copyright" content="Time Service B.V." />
+    <meta name="author" content="Time Service B.V." />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <link rel="apple-touch-icon-precomposed" href="https://ltcdn.azureedge.net/Img/apple-touch-icon.png">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://ltcdn.azureedge.net/Img/apple-touch-icon-144x144.png">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://ltcdn.azureedge.net/Img/apple-touch-icon-114x114.png">
+    
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://ltcdn.azureedge.net/Img/apple-touch-icon-72x72.png">
+    
+    <link rel="apple-touch-icon-precomposed" href="https://ltcdn.azureedge.net/Img/apple-touch-icon.png">
+    
+        <link rel="shortcut icon" href="https://ltcdn.azureedge.net/Img/favicon.ico" />
+    <meta name="viewport" content="width=device-width">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    
+    <meta property="og:site_name" content="LiveTiming" />
+    <meta property="og:url" content="https://livetiming.getraceresults.com/demo" />
+    <meta property="og:title" content="LiveTiming Demo" />
+    
+    <meta property="machine-name" content="RD0003FF8A15A6" />
+    <title>LiveTiming Demo</title>
+    
+        <link rel="stylesheet" type="text/css" href="https://ltcdn.azureedge.net/Styles/Packed/liveTiming-all$06A4FC2F972C5A78D06D3F6321FE7230$.css" />
+
+    <script src="https://ltcdn.azureedge.net/Scripts/Packed/TsApploader$B734DC5EC0C8051554229A41F0E14CDC$.js" type="text/javascript"></script>
+    <script src="https://ltcdn.azureedge.net/Scripts/Packed/liveTiming-libs-sr$3EF1990D95F9649E2BACA8CD42C9F9DA$.js" type="text/javascript"></script>
+        
+            <script src="https://ltcircuits.azureedge.net/CHI-SHANGHAI-F1/circuitLayoutData.js?lm=1542283833" type="text/javascript"></script>
+    <script src="https://ltcdn.azureedge.net/Scripts/Packed/liveTiming-all$CF0F483C56997B3D22615EE11B02474B$.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+    
+    window.tsAppInfo = {
+    };
+
+    var test = document.lastModified;
+
+    var ltapp;
+    var onReady = function() {
+/**/
+        liveTiming.serverTimeOffset = 716508669677239 - tsLib.getTsTimeUtc();
+        liveTiming.webserverTimeOffset = 716501469740825 - tsLib.getTsTimeUtc();
+        liveTiming.getWebserverTimeUtc = function() { return tsLib.getTsTimeUtc() + liveTiming.webserverTimeOffset; };
+
+        
+        var request = new XMLHttpRequest();
+        var requestStartTime = (new Date()).getTime();
+        request.open("HEAD", window.location.origin + "/time?t=" + requestStartTime, true);
+        request.send(null);
+        var f = function() {
+            if (request.readyState < 2) {
+                var now = (new Date()).getTime();
+                if (requestStartTime + 12000 < now) {
+                    request.abort();
+                }
+                else {
+                    window.setTimeout(f, 150);
+                }
+            }
+            else {
+                var hd = request.getResponseHeader("Date");
+                var dp = Date.parse(hd);
+                if (!isNaN(dp) && dp !== 0) {
+                    var responseDate = new Date(dp);
+                    var pageAge = tsLib.convertDateToTsTime(responseDate) - 716501469740825;
+                    liveTiming.serverTimeOffset += pageAge;
+                    liveTiming.webserverTimeOffset += pageAge;
+                }
+            }
+        };
+        f();
+
+        liveTiming.timeDisplayResolution = 3;
+        liveTiming.isSignalREnabled = true;
+
+
+        var heatStateViewModel = tsLib.getInstance("liveTiming.viewModel.HeatStateViewModel");
+        heatStateViewModel.h_h({"n":"Asian Le Mans Series - Race","lm":1,"s":716502215856000,"e":716516615856000,"lr":1,"lt":14400000000,"lg":1,"ll":51,"lu":51,"f":7,"m":1,"c":5451000,"h":false,"r":6439895000,"q":716508655751000,"t":"CHI-SHANGHAI-F1"});
+
+                
+        var raceResultsViewModel = tsLib.getInstance("liveTiming.results.viewModel.RaceResultsViewModel");
+        raceResultsViewModel.r_l({"ck":7,"h":[{"c":"POS","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"center","dc":"Black","ds":11,"dfc":"255,255,0","dn":"Tahoma","n":"position","p":"","h":20,"w":31},{"c":"M","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"center","dc":"Black","ds":7,"dfc":"255,255,0","dn":"tahoma","n":"marker","p":"","h":20,"w":26},{"c":"NR","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"center","dc":"Black","ds":11,"dfc":"0,255,255","dn":"Tahoma","n":"startnumber","p":"","h":20,"w":35},{"c":"E.T.A.","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"center","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"State","p":"","h":20,"w":52},{"c":"TEAM","ca":"left","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"left","dc":"Black","ds":9,"dfc":"255,255,0","dn":"Tahoma","n":"name","p":"","h":20,"w":175},{"c":"NAT","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,255","cn":"tahoma","da":"center","dc":"Black","ds":10,"dfc":"255,255,0","dn":"tahoma","n":"Country","p":"","h":20,"w":41},{"c":"CAR","ca":"left","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"left","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"car","p":"","h":20,"w":186},{"c":"DRIVER IN CAR","ca":"left","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"left","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"CurrentDriver","p":"","h":20,"w":131},{"c":"NAT","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,255","cn":"tahoma","da":"center","dc":"Black","ds":10,"dfc":"255,255,0","dn":"tahoma","n":"CurrentDriverNationality","p":"","h":20,"w":35},{"c":"CLS","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"center","dc":"Black","ds":10,"dfc":"0,255,0","dn":"Tahoma","n":"class","p":"","h":20,"w":60},{"c":"PIC","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"center","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"position_in_class","p":"","h":20,"w":29},{"c":"GAP","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"center","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"hole","p":"","h":20,"w":93},{"c":"DIFF","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"diff","p":"","h":20,"w":80},{"c":"LAST","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,255","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,255","dn":"Tahoma","n":"lastRoundTime","p":"","h":20,"w":75},{"c":"BEST","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"fastestRoundTime","p":"","h":20,"w":68},{"c":"IN","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"center","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"fastestRoundNumber","p":"","h":20,"w":29},{"c":"SECT-1","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"SectorTimes","p":"1","h":20,"w":66},{"c":"SECT-2","ca":"left","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"SectorTimes","p":"2","h":20,"w":61},{"c":"SECT-3","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"SectorTimes","p":"3","h":20,"w":66},{"c":"PIT","ca":"center","cc":"Navy","cs":9,"cfc":"255,255,255","cn":"Tahoma","da":"center","dc":"Black","ds":13,"dfc":"255,255,0","dn":"Tahoma","n":"pitstops","p":"","h":20,"w":30},{"c":"LAST PIT","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"PitTime","p":"","h":20,"w":62},{"c":"STINT","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"right","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"CurrentDriverStintTime","p":"","h":20,"w":60},{"c":"S","ca":"center","cc":"Navy","cs":10,"cfc":"255,255,0","cn":"Tahoma","da":"center","dc":"Black","ds":10,"dfc":"255,255,0","dn":"Tahoma","n":"sectionMarker","p":"","h":20,"w":26}]});
+        raceResultsViewModel.r_c([[0,0,"23"],[0,1,"5"],[0,2,"1"],[0,3,"SIn Pit"],[0,4,"Eurasia Motorsport"],[0,5,"PHL"],[0,6,"Ligier JS P217"],[0,7,"Masataka Yanagida"],[0,8,"JPN"],[0,9,"LMP2","000080FFFFFF"],[0,10,"7","000080FFFFFF"],[0,11,"-- 27 laps --"],[0,12,"23:00.201"],[0,13,"1498345000","-1"],[0,14,"117758000"],[0,15,"24"],[0,16,"9223372036854775807"],[0,17,"87674000"],[0,18,"9223372036854775807"],[0,19,"3"],[0,20,"S716507101701000","-1"],[0,21,"P716507101701000","-1"],[0,22,"1"],[1,0,"12"],[1,1,"2"],[1,2,"2"],[1,3,"E716508779967000"],[1,4,"Nielsen Racing"],[1,5,"GBR"],[1,6,"Norma M30"],[1,7,"Colin Noble"],[1,8,"GBR"],[1,9,"LMP3","7F0F7EFFFFFF"],[1,10,"4","7F0F7EFFFFFF"],[1,11,"3:29.740"],[1,12,"2:15.743"],[1,13,"336882000","-1"],[1,14,"124472000"],[1,15,"3"],[1,16,"9223372036854775807"],[1,17,"81402000"],[1,18,"83563000"],[1,19,"2"],[1,20,"L111288000","-1"],[1,21,"S716508427275000","-1"],[1,22,"4"],[2,0,"22"],[2,1,"11"],[2,2,"3"],[2,3,"SOutLap"],[2,4,"Nielsen Racing"],[2,5,"GBR"],[2,6,"Norma M30"],[2,7,"Charles Crews"],[2,8,"USA"],[2,9,"LMP3","7F0F7EFFFFFF"],[2,10,"6","7F0F7EFFFFFF"],[2,11,"-- 45 laps --"],[2,12,"1:02.261"],[2,13,"134884000","-1"],[2,14,"126622000"],[2,15,"11"],[2,16,"9223372036854775807"],[2,17,"83166000"],[2,18,"9223372036854775807"],[2,19,"2"],[2,20,"L111957000","-1"],[2,21,"S716502327813000","-1"],[2,22,"6"],[3,0,"6"],[3,1,"11"],[3,2,"4"],[3,3,"SOutLap"],[3,4,"Arc Bratislava"],[3,5,"SVK"],[3,6,"Ligier JS P2"],[3,7,"Kang Ling"],[3,8,"CHN"],[3,9,"LMP2 AM","FFFFFF000080"],[3,10,"1","FFFFFF000080"],[3,11,"1:07.302"],[3,12,"1:07.302"],[3,13,"199687000","-1"],[3,14,"119039000"],[3,15,"31"],[3,16,"9223372036854775807"],[3,17,"9223372036854775807"],[3,18,"9223372036854775807"],[3,19,"2"],[3,20,"L114429000","-1"],[3,21,"S716502330285000","-1"],[3,22,"4"],[4,0,"20"],[4,1,"11"],[4,2,"7"],[4,3,"SOutLap"],[4,4,"Car Guy"],[4,5,"JPN"],[4,6,"Ferrari 488 GT3"],[4,7,"Kei Cozzolino"],[4,8,"JPN"],[4,9,"GT","B6610CFFFFFF"],[4,10,"6","B6610CFFFFFF"],[4,11,"1:04.716"],[4,12,"58.210"],[4,13,"186780000","-1"],[4,14,"127069000"],[4,15,"32"],[4,16,"9223372036854775807"],[4,17,"9223372036854775807"],[4,18,"9223372036854775807"],[4,19,"3"],[4,20,"L111498000","-1"],[4,21,"S716506471284000","-1"],[4,22,"5"],[5,0,"11"],[5,1,"11"],[5,2,"9"],[5,3,"SOutLap"],[5,4,"Graff"],[5,5,"FRA"],[5,6,"Norma M30"],[5,7,"Sebastien Page"],[5,8,"CHE"],[5,9,"LMP3","7F0F7EFFFFFF"],[5,10,"3","7F0F7EFFFFFF"],[5,11,"1:13.997"],[5,12,"1:07.754"],[5,13,"203572000","-1"],[5,14,"124253000"],[5,15,"3"],[5,16,"9223372036854775807"],[5,17,"9223372036854775807"],[5,18,"9223372036854775807"],[5,19,"2"],[5,20,"L113584000","-1"],[5,21,"S716502329440000","-1"],[5,22,"4"],[6,0,"8"],[6,1,"2"],[6,2,"12"],[6,3,"E716508880406590"],[6,4,"ACE1 Villorba Corse"],[6,5,"ITA"],[6,6,"Ligier JS P3"],[6,7,"Gabriele Lancieri"],[6,8,"ITA"],[6,9,"LMP3","7F0F7EFFFFFF"],[6,10,"1","7F0F7EFFFFFF"],[6,11,"3:02.638"],[6,12,"1:22.635"],[6,13,"242238000","-1"],[6,14,"122659000"],[6,15,"4"],[6,16,"77821000"],[6,17,"81128000"],[6,18,"83289000"],[6,19,"1"],[6,20,"L116437000","-1"],[6,21,"S716502215856000","-1"],[6,22,"4"],[7,0,"9"],[7,1,"11"],[7,2,"13"],[7,3,"SOutLap"],[7,4,"Inter Europol Competition"],[7,5,"POL"],[7,6,"Ligier JS P3"],[7,7,"Nigel Moore"],[7,8,"GBR"],[7,9,"LMP3","7F0F7EFFFFFF"],[7,10,"2","7F0F7EFFFFFF"],[7,11,"-- 48 laps --"],[7,12,"1:01.324"],[7,13,"171819000","-1"],[7,14,"123972000"],[7,15,"3"],[7,16,"9223372036854775807"],[7,17,"9223372036854775807"],[7,18,"9223372036854775807"],[7,19,"2"],[7,20,"L111441000","-1"],[7,21,"S716508554754000","-1"],[7,22,"5"],[8,0,"17"],[8,1,"2"],[8,2,"17"],[8,3,"E716508804222561"],[8,4,"Astro Veloce Motorsports"],[8,5,"CHN"],[8,6,"BMW M6 GT3"],[8,7,"Max Wiser"],[8,8,"ITA"],[8,9,"GT","B6610CFFFFFF"],[8,10,"3","B6610CFFFFFF"],[8,11,"3:44.252"],[8,12,"56.776"],[8,13,"228560000","-1"],[8,14,"127192000"],[8,15,"29"],[8,16,"80086000"],[8,17,"9223372036854775807"],[8,18,"9223372036854775807"],[8,19,"1"],[8,20,"L114677000","-1"],[8,21,"S716505639194000","-1"],[8,22,"5"],[9,0,"2"],[9,1,"2"],[9,2,"26"],[9,3,"E716508754404073"],[9,4,"G-Drive Racing By Algarve"],[9,5,"RUS"],[9,6,"Aurus 01"],[9,7,"Leonard Hoogenboom"],[9,8,"NLD"],[9,9,"LMP2","000080FFFFFF"],[9,10,"2","000080FFFFFF"],[9,11,"23.553"],[9,12,"23.553"],[9,13,"203886000","-1"],[9,14,"116347000"],[9,15,"2"],[9,16,"77624000"],[9,17,"9223372036854775807"],[9,18,"9223372036854775807"],[9,19,"2"],[9,20,"L83587000","-1"],[9,21,"S716507855573000","-1"],[9,22,"5"],[10,0,"18"],[10,1,"11"],[10,2,"27"],[10,3,"SOutLap"],[10,4,"HubAuto Corsa"],[10,5,"TPE"],[10,6,"Ferrari 488 GT3"],[10,7,"Davide Rigon"],[10,8,"ITA"],[10,9,"GT","B6610CFFFFFF"],[10,10,"4","B6610CFFFFFF"],[10,11,"-- 46 laps --"],[10,12,"1:01.427"],[10,13,"163309000","-1"],[10,14,"126274000"],[10,15,"27"],[10,16,"9223372036854775807"],[10,17,"9223372036854775807"],[10,18,"9223372036854775807"],[10,19,"2"],[10,20,"L145655000","-1"],[10,21,"S716508549260000","-1"],[10,22,"5"],[11,0,"7"],[11,1,"3"],[11,2,"33"],[11,3,"E716508773779588"],[11,4,"Inter Europol Endurance"],[11,5,"POL"],[11,6,"Ligier JS P217"],[11,7,"Nathan Kumar"],[11,8,"AUS"],[11,9,"LMP2","000080FFFFFF"],[11,10,"6","000080FFFFFF"],[11,11,"1:40.003"],[11,12,"32.701"],[11,13,"315384000","-1"],[11,14,"118735000"],[11,15,"5"],[11,16,"79801000"],[11,17,"9223372036854775807"],[11,18,"9223372036854775807"],[11,19,"2"],[11,20,"L102343000","-1"],[11,21,"S716508328536000","-1"],[11,22,"5"],[12,0,"4"],[12,1,"2"],[12,2,"34"],[12,3,"E716508772818983"],[12,4,"Inter Europol Endurance"],[12,5,"POL"],[12,6,"Ligier JS P217"],[12,7,"Mathias Beche"],[12,8,"CHE"],[12,9,"LMP2","000080FFFFFF"],[12,10,"4","000080FFFFFF"],[12,11,"-- 50 laps --"],[12,12,"3:35.393"],[12,13,"208577000","-1"],[12,14,"117263000"],[12,15,"3"],[12,16,"79256000"],[12,17,"9223372036854775807"],[12,18,"9223372036854775807"],[12,19,"2"],[12,20,"L95716000","-1"],[12,21,"S716507982396000","-1"],[12,22,"5"],[13,0,"3"],[13,1,"11"],[13,2,"36"],[13,3,"SOutLap"],[13,4,"Eurasia Motorsport"],[13,5,"PHL"],[13,6,"Ligier JS P217"],[13,7,"Nicholas Foster"],[13,8,"GBR"],[13,9,"LMP2","000080FFFFFF"],[13,10,"3","000080FFFFFF"],[13,11,"29.740"],[13,12,"6.187"],[13,13,"206969000","-1"],[13,14,"115380000"],[13,15,"1"],[13,16,"9223372036854775807"],[13,17,"9223372036854775807"],[13,18,"9223372036854775807"],[13,19,"3"],[13,20,"L45304000","-1"],[13,21,"S716507432969000","-1"],[13,22,"5"],[14,0,"1"],[14,1,"2"],[14,2,"45"],[14,3,"E716508713756644"],[14,4,"Thunderhead Carlin Racing"],[14,5,"GBR"],[14,6,"Dallara P217"],[14,7,"Jack Manchester"],[14,8,"GBR"],[14,9,"LMP2","000080FFFFFF"],[14,10,"1","000080FFFFFF"],[14,11,"-- 51 laps --"],[14,12,""],[14,13,"192282000","-1"],[14,14,"116288000"],[14,15,"24"],[14,16,"79411000"],[14,17,"9223372036854775807"],[14,18,"9223372036854775807"],[14,19,"2"],[14,20,"L91682000","-1"],[14,21,"S716507721453000","-1"],[14,22,"5"],[15,0,"21"],[15,1,"11"],[15,2,"51"],[15,3,"SOutLap"],[15,4,"Spirit Of Race"],[15,5,"CHE"],[15,6,"Ferrari 488 GT3"],[15,7,"Oswaldo Negri Jr"],[15,8,"USA"],[15,9,"GT","B6610CFFFFFF"],[15,10,"7","B6610CFFFFFF"],[15,11,"1:20.298"],[15,12,"15.582"],[15,13,"189004000","-1"],[15,14,"127952000"],[15,15,"30"],[15,16,"9223372036854775807"],[15,17,"9223372036854775807"],[15,18,"9223372036854775807"],[15,19,"3"],[15,20,"L110799000","-1"],[15,21,"S716505957652000","-1"],[15,22,"5"],[16,0,"13"],[16,1,"11"],[16,2,"52"],[16,3,"SOutLap"],[16,4,"Rick Ware Racing"],[16,5,"USA"],[16,6,"Ligier JS P2"],[16,7,"Mark Kvamme"],[16,8,"USA"],[16,9,"LMP2 AM","FFFFFF000080"],[16,10,"3","FFFFFF000080"],[16,11,"-- 47 laps --"],[16,12,"30.568"],[16,13,"134140000","-1"],[16,14,"122146000"],[16,15,"23"],[16,16,"9223372036854775807"],[16,17,"83677000"],[16,18,"9223372036854775807"],[16,19,"2"],[16,20,"L164063000","-1"],[16,21,"S716508510791000","-1"],[16,22,"5"],[17,0,"10"],[17,1,"0"],[17,2,"59"],[17,3,"E716508687109661"],[17,4,"RLR MSPORT"],[17,5,"GBR"],[17,6,"Oreca 05"],[17,7,"Andrew Higgins"],[17,8,"NZL"],[17,9,"LMP2 AM","FFFFFF000080"],[17,10,"2","FFFFFF000080"],[17,11,"6.243"],[17,12,"6.243"],[17,13,"162792000","-1"],[17,14,"119429000"],[17,15,"9"],[17,16,"80910000"],[17,17,"83356000"],[17,18,"9223372036854775807"],[17,19,"2"],[17,20,"L114862000","-1"],[17,21,"S716508154197000","-1"],[17,22,"6"],[18,0,"16"],[18,1,"2"],[18,2,"65"],[18,3,"E716508730656521"],[18,4,"Viper Niza Racing"],[18,5,"MYS"],[18,6,"Ligier JS P3"],[18,7,"Dominic Ang"],[18,8,"MYS"],[18,9,"LMP3","7F0F7EFFFFFF"],[18,10,"5","7F0F7EFFFFFF"],[18,11,"2:47.476"],[18,12,"22.260"],[18,13,"199055000","-1"],[18,14,"124273000"],[18,15,"28"],[18,16,"78904000"],[18,17,"9223372036854775807"],[18,18,"9223372036854775807"],[18,19,"1"],[18,20,"L116658000","-1"],[18,21,"S716505675479000","-1"],[18,22,"5"],[19,0,"19"],[19,1,"11"],[19,2,"75"],[19,3,"SOutLap"],[19,4,"T2 Motorsports"],[19,5,"IDN"],[19,6,"Ferrari 488 GT3"],[19,7,"Christian Colombo"],[19,8,"ITA"],[19,9,"GT","B6610CFFFFFF"],[19,10,"5","B6610CFFFFFF"],[19,11,"6.506"],[19,12,"6.506"],[19,13,"161777000","-1"],[19,14,"128400000"],[19,15,"33"],[19,16,"9223372036854775807"],[19,17,"9223372036854775807"],[19,18,"9223372036854775807"],[19,19,"2"],[19,20,"L115194000","-1"],[19,21,"S716506299325000","-1"],[19,22,"5"],[20,0,"15"],[20,1,"0"],[20,2,"77"],[20,3,"E716508753028948"],[20,4,"D'station Racing"],[20,5,"JPN"],[20,6,"Aston Martin Vantage AMR GT3"],[20,7,"Satoshi Hoshino"],[20,8,"JPN"],[20,9,"GT","B6610CFFFFFF"],[20,10,"2","B6610CFFFFFF"],[20,11,"2:25.216"],[20,12,"16.439"],[20,13,"186935000","-1"],[20,14,"127195000"],[20,15,"3"],[20,16,"80219000"],[20,17,"83357000"],[20,18,"9223372036854775807"],[20,19,"1"],[20,20,"L129668000","-1"],[20,21,"S716506476326000","-1"],[20,22,"6"],[21,0,"14"],[21,1,"0"],[21,2,"88"],[21,3,"E716508739956992"],[21,4,"JLOC"],[21,5,"JPN"],[21,6,"Lamborghini Huracan GT3 Evo"],[21,7,"Yusaku Shibata"],[21,8,"JPN"],[21,9,"GT","B6610CFFFFFF"],[21,10,"1","B6610CFFFFFF"],[21,11,"2:08.777"],[21,12,"2:08.777"],[21,13,"186190000","-1"],[21,14,"126533000"],[21,15,"6"],[21,16,"81057000"],[21,17,"83950000"],[21,18,"9223372036854775807"],[21,19,"1"],[21,20,"L110089000","-1"],[21,21,"S716506716936000","-1"],[21,22,"6"],[22,0,"24"],[22,1,"0"],[22,2,"90"],[22,3,"S?"],[22,4,"FIST - Team AAI"],[22,5,"CHN"],[22,6,"BMW M6 GT3"],[22,7,"Jun San Chen"],[22,8,"TPE"],[22,9,"GT","B6610CFFFFFF"],[22,10,"8","B6610CFFFFFF"],[22,11,"-- 17 laps --"],[22,12,"1:04:10.369"],[22,13,"130764000","-1"],[22,14,"130211000"],[22,15,"15"],[22,16,"44369000"],[22,17,"47944000","65280"],[22,18,"9223372036854775807"],[22,19,"1"],[22,20,"L3671581000","-1"],[22,21,"S716505887437000","-1"],[22,22,"6"],[23,0,"5"],[23,1,"0"],[23,2,"96"],[23,3,"E716508696307164"],[23,4,"K2 Uchino Racing"],[23,5,"JPN"],[23,6,"Oreca 07"],[23,7,"Haruki Kurosawa"],[23,8,"JPN"],[23,9,"LMP2","000080FFFFFF"],[23,10,"5","000080FFFFFF"],[23,11,"-- 49 laps --"],[23,12,"1:47.655"],[23,13,"163811000","-1"],[23,14,"117133000"],[23,15,"5"],[23,16,"84184000"],[23,17,"84781000"],[23,18,"9223372036854775807"],[23,19,"2"],[23,20,"L137314000","-1"],[23,21,"S716508026123000","-1"],[23,22,"6"]], true);
+                
+        var statsViewModel = tsLib.getInstance("liveTiming.stats.StatsViewModel");
+        statsViewModel.a_u({"g":"716502215856000","x":"46","r":"0","t":"0","fy":"1","f":"0","h":"Asian Le Mans Series - Race","fu":"296354000","fc":"1","e":"50","o":"1099","u":"0","c":"0","y":"0","p":"24","s":"0","d":{"1":{"e":"22","n":"Eurasia Motorsport","c":"Ligier JS P217","s":"36"},"2":{"e":"15","n":"Thunderhead Carlin Racing","c":"Dallara P217","s":"45"},"3":{"e":"13","n":"G-Drive Racing By Algarve","c":"Aurus 01","s":"26"},"4":{"e":"1","n":"K2 Uchino Racing","c":"Oreca 07","s":"96"}},"b":{"1":{"r":"1","i":"115380000","t":"716502331236000","a":"170.08","d":"Aidan Read","n":"Eurasia Motorsport","c":"Ligier JS P217","s":"36"}},"l":{"1":{"f":"1","l":"22","d":"Aidan Read","n":"Eurasia Motorsport","c":"Ligier JS P217","s":"36"},"2":{"f":"23","l":"23","d":"Shaun Thong","n":"K2 Uchino Racing","c":"Oreca 07","s":"96"},"3":{"f":"24","l":"35","d":"James French","n":"G-Drive Racing By Algarve","c":"Aurus 01","s":"26"},"4":{"f":"36","l":"45","d":"Ben Barnicoat","n":"Thunderhead Carlin Racing","c":"Dallara P217","s":"45"},"5":{"f":"46","l":"46","d":"James French","n":"G-Drive Racing By Algarve","c":"Aurus 01","s":"26"},"6":{"f":"47","l":"51","d":"Jack Manchester","n":"Thunderhead Carlin Racing","c":"Dallara P217","s":"45"}},"q":{"1":{"r":"1","i":"115380000","t":"716502331236000","a":"170.08","d":"Aidan Read","n":"Eurasia Motorsport","m":"LMP2","p":"0","c":"Ligier JS P217","s":"36"},"2":{"r":"31","i":"119039000","t":"716506252963000","a":"164.85","d":"Kang Ling","n":"Arc Bratislava","m":"LMP2 AM","p":"1","c":"Ligier JS P2","s":"4"},"3":{"r":"4","i":"122659000","t":"716502712906000","a":"159.98","d":"Alessandro Bressan","n":"ACE1 Villorba Corse","m":"LMP3","p":"2","c":"Ligier JS P3","s":"12"},"4":{"r":"27","i":"126274000","t":"716505930486000","a":"155.40","d":"Marcos Gomes","n":"HubAuto Corsa","m":"GT","p":"3","c":"Ferrari 488 GT3","s":"27"}},"i":{"3":{"k":"FullCourseYellow","f":"716508368678000","r":"","s":"0","t":"9223372036854775807"}}});
+                
+        var screenMessagesListViewModel = tsLib.getInstance("liveTiming.screenMessagesList.ScreenMessagesListViewModel");
+        screenMessagesListViewModel.setMessages([{"Id":"b103221e-cc91-4a75-85aa-31b093294031","t":"TESTING MESSAGE","ts":627731669451000,"p":7},{"Id":"3cdee182-6c97-4e51-bb7e-49317d5737ba","t":"","ts":627731669701000,"p":7},{"Id":"465866b1-bd91-4729-970f-19fabd169bb4","t":"","ts":627731669841000,"p":7},{"Id":"9fd09418-074f-4996-af0a-a082c83c8ff8","t":"TESTING","ts":627731688513000,"p":7},{"Id":"2fd57dc0-74c5-45e2-a133-09c2afd52564","t":"Yellow flag at T6","ts":627732098961000,"p":7},{"Id":"755555d5-4361-4a1d-aebc-e2034e16370d","t":"Yellow flag at T13-T14","ts":627732105570000,"p":7},{"Id":"daf92081-705e-427d-81fb-e95165e22562","t":"TEST","ts":627732184039000,"p":7},{"Id":"8dd73289-847a-4a65-bb14-f3436e66107c","t":"BLACK AND WHITE FLAG - CAR  FOR ABUSE OF TRACK LIMITS AT TURN ","ts":627734870431000,"p":15},{"Id":"c55bbc72-f003-49f7-af76-8798cbc7b28f","t":"ALMS FREE PRACTICE 1 WILL START ON TIME AT 13:50","ts":627745578669000,"p":7},{"Id":"eaf4b039-18eb-4542-9e89-29c17da99805","t":"PIT LANE OPEN","ts":627745800408000,"p":7},{"Id":"9b557073-bd97-4428-8aa1-3333096fa3ac","t":"Yellow flag at T2","ts":627746151627000,"p":7},{"Id":"9e5e3c20-3906-4577-b4da-9429f80c520d","t":"TEAM MANAGER CAR 17 AND 65 IMMEDIATELY TO RACE CONTROL","ts":627746395254000,"p":7},{"Id":"ce445dd4-5816-45cd-b162-bcc71e0e0ab0","t":"CAR 34 - 45 - 9 - 12 - 7 - 27 - 77 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627747554835000,"p":7},{"Id":"a189992c-1a8b-4539-9c5d-fb7b335ac06b","t":"CAR 45 - 90 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627747690476000,"p":7},{"Id":"a4b95766-94d7-44d5-8aaa-fa9addf1b96b","t":"CAR 65 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627747945398000,"p":7},{"Id":"d02cef97-de4c-46b7-989a-6b57e2363a20","t":"TEAM RADIO TEST AT 14:27","ts":627747956023000,"p":7},{"Id":"a09804d0-02d0-4840-ae9d-d9c04bb131cf","t":"CAR 7 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627748160891000,"p":7},{"Id":"ff231504-63d0-459c-b1e6-eed4083c8377","t":"CAR 27 MUST RESPECT TRACK LIMIT AT TURN 13","ts":627748323234000,"p":7},{"Id":"c201edb9-9eed-45db-8c9c-6964d301058b","t":"CAR 4 - 75 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627748430609000,"p":7},{"Id":"bdb5c05b-1b7f-4b1f-86d0-0d575d5e0203","t":"CAR 51 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627748484984000,"p":7},{"Id":"82dc7168-9406-4248-b86d-a2d139f7529d","t":"CAR 65 MISS THE APEX AT T16","ts":627748549813000,"p":7},{"Id":"4f41a8b3-d547-4d59-bd7c-cfe1c4c9d54a","t":"CAR 45 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627748614641000,"p":7},{"Id":"056c890d-c923-4001-ae51-6038941cd657","t":"CAR 51 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627748933048000,"p":7},{"Id":"3f52877f-d294-45ed-aa97-ed8ea3c34309","t":"CAR 9 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749033298000,"p":7},{"Id":"4bba207c-4ceb-4f13-b648-7ff6fc1097a0","t":"CAR 2 - 27 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749115001000,"p":7},{"Id":"47d37a5b-719a-4eaa-85d4-0476551d8c19","t":"CAR 9 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749196955000,"p":7},{"Id":"8464411c-962a-4f1d-8e46-1c00e4e930b0","t":"CAR 3 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749266955000,"p":7},{"Id":"9a4c582c-1916-4a04-93c8-8ec7425c8527","t":"CAR 45 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749353080000,"p":7},{"Id":"bac2e32f-ecaa-4bc5-934d-19ee6346bd54","t":"CAR 3 MUST RESPECT TRACK LIMIT AT TURN 166","ts":627749408689000,"p":7},{"Id":"ad2a5154-3934-4ecc-811b-753193c1094b","t":"BLACK AND WHITE FLAG - CAR 9 FOR ABUSE OF TRACK LIMITS AT TURN 16","ts":627749477689000,"p":15},{"Id":"e710bf3d-5692-4a0b-9ea8-4bd121776dd7","t":"CAR 2 - 90 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749558798000,"p":7},{"Id":"fc4eac30-7ab1-480c-944f-d17b1bd3b617","t":"CAR 7 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749612751000,"p":7},{"Id":"7dcfaa7d-07ba-43df-94b5-354a2ae276bb","t":"CAR 2 - 27 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749738298000,"p":7},{"Id":"2856a2d9-a5a5-435e-901a-6868f27d5dbb","t":"CAR 7 - 12 - 34 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627749929595000,"p":7},{"Id":"16e98f06-80f9-4440-aa2f-b3445cdd0e07","t":"PREPARE FOR FCY AT 15:00","ts":627749951307000,"p":7},{"Id":"e2cc10cf-608f-48e2-a896-d0ddf5dc8e70","t":"FCY WILL END AT 15:04","ts":627750205182000,"p":7},{"Id":"5364a1c3-30f4-4736-8458-084bd734ac7a","t":"CAR 2 - 45 - 88 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627750573679000,"p":7},{"Id":"8aed5dc2-5a55-48ef-bd1f-a543939ac187","t":"CAR 88 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627750640554000,"p":7},{"Id":"ce8fbb5d-56a2-4a81-88fb-b5d1490f08a1","t":"BLACK AND WHITE FLAG - CAR 2 FOR ABUSE OF TRACK LIMITS AT TURN 16","ts":627750883320000,"p":15},{"Id":"a4898bf1-e2e6-45db-b2ec-5f346ffed7ea","t":"CAR 3 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627751076945000,"p":7},{"Id":"991cb23e-45da-4e96-ade0-c6342f6af9af","t":"Yellow flag at T9","ts":627751136132000,"p":7},{"Id":"d5b96aa6-ec55-4da0-b08a-f898c9ded0e3","t":"CAR 33 STOPPED AT T9","ts":627751188905000,"p":7},{"Id":"936e1b4f-c988-4bd5-9803-395fc240fa5f","t":"ASIAN LMS - RACE CONTROL RADIO TEST AT 11:20","ts":627822900373000,"p":7},{"Id":"18e1099a-b198-4ef1-a799-03a9e57c4893","t":"ASIAN LMS - FREE PRACTICE 2 WILL START AT 11:30","ts":627823200486000,"p":7},{"Id":"6a59097e-9604-4bc9-9d2f-e029eea0a5ec","t":"ASIAN LMS - RADIO CHECK AT 11:25","ts":627823260240000,"p":7},{"Id":"f0bac924-1fac-4364-ba7a-84b0854fdf3a","t":"","ts":627823334437000,"p":7},{"Id":"b150edbf-178f-42d4-bacd-04161b3b000c","t":"ASIAN LMS - 5 MINUTES TO THE START OF FREE PRACTICE 2","ts":627823520453000,"p":7},{"Id":"548489e7-d11a-4928-abb0-f00294b0aa6b","t":"ASIAN LMS - 3 MINUTES TO THE START OF FREE PRACTICE 2","ts":627823620125000,"p":7},{"Id":"ccf4f1c7-41e1-4e16-902c-84b435d42be3","t":"ASIAN LMS - 1 MINUTE TO THE START OF FREE PRACTICE 2","ts":627823749297000,"p":7},{"Id":"f0422028-b539-4f96-a5cd-0420931cdc70","t":"ASIAN LMS - 30 SECONDS TO THE START OF FREE PRACTICE 2","ts":627823783073000,"p":7},{"Id":"8f405e46-b37c-4b32-9045-7e4424b11502","t":"PIT LANE IS OPEN","ts":627823800807000,"p":7},{"Id":"5f31c351-b138-482a-9364-cfd7d0d7a0bd","t":"CAR 4 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627824162260000,"p":7},{"Id":"424bfb38-e1dd-437b-b9ad-5ed8e9d7d6a8","t":"CAR 77 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627824265354000,"p":7},{"Id":"1435c1f1-b787-4caf-92ec-732961875ee4","t":"CAR 2 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627824347417000,"p":7},{"Id":"9e4bf264-c266-4ff3-be31-5dcb52bf6527","t":"CARS 13 - 36 - 75 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627824480867000,"p":7},{"Id":"fc465c12-47a9-488e-85ea-0f311268a9cd","t":"CAR 13 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627824699711000,"p":7},{"Id":"a9a1fa81-e537-471d-ac5b-73851c123327","t":"CAR 36 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627824773148000,"p":7},{"Id":"608a338d-f312-4cfa-addc-0f90d284aa7f","t":"CAR 9 MUST RESPECT TRACK LIMIT AT TURN 16","ts":627824878773000,"p":7},{"Id":"5b9434c1-31c7-473a-b9aa-19e6d536eaec","t":"CAR 9 DRIVER PAGE MUST RESPECT TRACK LIMIT AT TURN 16","ts":627825001898000,"p":7},{"Id":"6a739969-e0eb-412a-a602-49267a1c4e64","t":"DEBRIS ON TRACK AT SC LINE 2","ts":627825098867000,"p":7},{"Id":"6e8b1c12-d694-45eb-98d1-7edb8c1c0954","t":"PREPARE FOR FCY AT 11:52:30","ts":627825128508000,"p":7},{"Id":"2466451e-c5fb-4793-92da-9c1d957c266a","t":"WET TRACK DECLARED","ts":627825398398000,"p":7},{"Id":"1fa7779a-eff8-46b1-be7b-7ba1a121ff32","t":"FCY WILL END AT 11:57:30","ts":627825423070000,"p":7},{"Id":"b78d94b7-3cec-4697-abec-8c5964876af8","t":"Yellow flag at T14","ts":627825483258000,"p":7},{"Id":"74e09d36-e169-4c0d-86bd-dff82437589e","t":"CAR 9 REPORTED TO THE STEWARDS FOR SPEEDING AT PIT ENTRY","ts":627825565778000,"p":7},{"Id":"4f79de95-76c5-4152-9efc-8ab89559359d","t":"CAR 7 - DRIVER KIMURA - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627826253285000,"p":7},{"Id":"a2bd3da8-5a1c-4e72-8d25-191ec0251bb0","t":"CAR 27 - DRIVER CHEN - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627826345489000,"p":7},{"Id":"4f318e0b-ea5f-47b1-b82d-7af0fdaaefbf","t":"CAR 9 - DRIVER DROUX - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627826408551000,"p":7},{"Id":"b0a513b1-d36c-43eb-be40-94189f25caee","t":"CAR 77 - DRIVER HOSHINO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627826458332000,"p":7},{"Id":"039fea85-5606-4775-8bfc-cc376cda721e","t":"CAR 33 MUST HAVE REAR RAIN LIGHTS ON","ts":627826598660000,"p":7},{"Id":"9c72e6d3-e5d5-40ad-85f0-c73a7239967a","t":"CAR 2 - DRIVER NOBLE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627826746989000,"p":7},{"Id":"abd41bcd-1f1e-449c-a24a-8db2384ca464","t":"CAR 90 - DRIVER YE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627826757004000,"p":7},{"Id":"8dc4c455-ed10-485c-9e28-6ac6f204b6eb","t":"CAR 9 MUST HAVE REAR RAIN LIGHTS ON","ts":627826845588000,"p":7},{"Id":"57b206e5-22f3-4e2f-b086-4e88a4a6c1de","t":"CAR 90 - DRIVER YE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627827002916000,"p":7},{"Id":"b2f63c36-bc95-47b3-a65a-8792f9c34a37","t":"CAR 7 - DRIVER COZZOLINO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627827868009000,"p":7},{"Id":"2e66bb9d-ad97-4884-87f1-f23bab7b5795","t":"CAR 9 - DRIVER DROUX - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828122596000,"p":7},{"Id":"7496a95d-e19a-4b8f-8b85-5ee283f33056","t":"CAR 77 - DRIVER HOSHINO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828160471000,"p":7},{"Id":"bd924fc7-cfc8-4779-9bd6-8f66c04b49f7","t":"CAR 45 - DRIVER BARNICOAT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828229018000,"p":7},{"Id":"4634c9e9-88ae-495b-8e49-526edbf42655","t":"CAR 36 - DRIVER MERHI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828343909000,"p":7},{"Id":"bfda0b40-bdb0-4c0c-8225-4a9a5016c29b","t":"CAR 90 - DRIVER ERIKSSON - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828411612000,"p":7},{"Id":"117b6598-9370-4d53-8daf-840ea533669d","t":"CAR 51 REPORTED TO THE STEWARDS FOR SPEEDING AT PIT ENTRY","ts":627828588283000,"p":7},{"Id":"54402ff8-e962-466d-8f53-2ffec0bd49ac","t":"CAR 45 - DRIVER BARNICOAT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828655689000,"p":7},{"Id":"cc4fa3d6-80cc-461a-ae69-e9200422a307","t":"CAR 51 - DRIVER NEGRI JR - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828861955000,"p":7},{"Id":"9bf2ee40-3103-42fb-8835-6ce63362f952","t":"CAR 77 - DRIVER GUNN - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627828934236000,"p":7},{"Id":"a1a3aedc-5a3c-4270-a03e-20d9d55c6eb3","t":"CAR 45 - DRIVER BARNICOAT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627829032236000,"p":7},{"Id":"aa3aeb63-0b5a-47ea-8a08-345869547eb6","t":"CAR 7 - DRIVER COZZOLINO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627829064705000,"p":7},{"Id":"322edb14-edd7-4e18-bd67-956c9c2c3377","t":"CHEQUERED FLAG","ts":627829234625000,"p":7},{"Id":"d0bd8939-13e4-4df2-8328-264fabc906d2","t":"ASIAN LMS - RACE CONTROL RADIO CHECK AT 15:50","ts":627839100963000,"p":7},{"Id":"c07a1ad2-7a21-4b0f-9d23-6d66e629fd69","t":"ASIAN LMS - GT QUALIFYING WILL START AT 16:00","ts":627839400790000,"p":7},{"Id":"4ea80dc3-d93e-487a-8eb1-f5979dd672e2","t":"ASIAN LMS - RACE CONTROL RADIO CHECK AT 15:55","ts":627839460352000,"p":7},{"Id":"fd42de46-07ad-4c3c-b635-d2d264e772b2","t":"ASIAN LMS - GT CARS MAY NOW ENTER THE WORKING LANE ","ts":627839700503000,"p":7},{"Id":"e2411777-0414-4f95-ac1c-b91870c6934f","t":"ASIAN LMS - 5 MINUTES TO THE START OF GT QUALIFYING","ts":627839700529000,"p":7},{"Id":"d4f873c0-5b61-4414-b69b-25f95ecf083c","t":"ASIAN LMS - 3 MINUTES TO THE START OF GT QUALIFYING","ts":627839820583000,"p":7},{"Id":"e70b1f3a-510e-496d-b011-9fb43fe2aae0","t":"ASIAN LMS - 1 MINUTE TO THE START OF GT QUALIFYING","ts":627839940390000,"p":7},{"Id":"4fe2ced0-e388-4a05-aea3-5eb106064da8","t":"ASIAN LMS - 30 SECONDS TO THE START OF GT QUALIFYING","ts":627839970592000,"p":7},{"Id":"6c615ef3-73a1-48f8-a4f1-f6fe79205fb5","t":"ANY LAPS NOTED ABUSE OF TRACK LIMITS WILL HAVE THE LAP IMMEDIATELY DELETED","ts":627839991895000,"p":7},{"Id":"5d19dc5b-f1c9-4528-84fc-911d76152869","t":"PIT LANE IS OPEN FOR GT QUALIFYING","ts":627840000571000,"p":7},{"Id":"1d4a431b-06dd-4f47-9ffa-d617c90f5d4d","t":"CAR 17 LAP 3 DELETED FOR ABUSE TRACK LIMIT AT TURN 10","ts":627840404661000,"p":7},{"Id":"465ec625-32cb-474f-8372-0bb6cfc7e36a","t":"Yellow flag at T2","ts":627840858687000,"p":7},{"Id":"f614edd6-e79b-429d-a6d7-bd2ac688c574","t":"CAR 88 STOPPED AT TURN 3 AND CONTINUED","ts":627840870906000,"p":7},{"Id":"c3df0bd3-5905-45e6-bbca-049cb19211d7","t":"CARS 27 - 51 TO GO IMMEDIATELY TO SCRUTINEERING - ALL OTHER CARS IN THEIR GARAGE UNDER PARC FERME REGULATIONS","ts":627841044594000,"p":7},{"Id":"a37b725f-c1c2-45db-ab36-e3f6dea9d0b4","t":"LMP2 AND LMP3 QUALIFYING WILL START AT 16:25","ts":627841125000000,"p":7},{"Id":"db9fcd4f-cddc-410c-9f6b-0f17502c3326","t":"LMP CARS MAY NOW ENTER WORKING LANE","ts":627841200362000,"p":7},{"Id":"d58511ed-9b76-44fd-a022-4a25acd1a757","t":"LMP2 AND LMP3 QUALIFYING WILL START AT 16:25","ts":627841200987000,"p":7},{"Id":"4d43a687-985b-49c1-9e9e-d627eb8cbcac","t":"3 MINUTES TO THE START OF LMP2 AND LMP3 QUALIFYING","ts":627841320806000,"p":7},{"Id":"042c1525-aa14-4862-8264-b53e3d01000e","t":"ANY LAPS REPORTED ABUSE OF TRACK LIMITS WILL HAVE THE LAP IMMEDIATELY DELETED","ts":627841353983000,"p":7},{"Id":"69aa95a5-7cdb-4503-814f-2605ee5a9cb2","t":"1 MINUTE TO THE START OF LMP2 AND LMP3 QUALIFYING","ts":627841440375000,"p":7},{"Id":"c2775e6e-f195-4a29-9b4a-b291d0cd7ae7","t":"30 SECONDS TO THE START OF LMP2 AND LMP3 QUALIFYING","ts":627841470366000,"p":7},{"Id":"2c1b783e-cacc-425b-918f-34256ae1332d","t":"PIT LANE OPEN FOR LMP CAR QUALIFYING","ts":627841502780000,"p":7},{"Id":"0519cf50-f267-4219-b3ea-b0ebaf0ded8c","t":"CAR 59 LAP 2 AND 3 DELETED FOR ABUSE TRACK LIMIT AT TURN 16","ts":627841848929000,"p":7},{"Id":"15dd2435-0c72-4742-961a-15c9071472fb","t":"CAR 59 LAP 2 AND 3 DELETED FOR ABUSE TRACK LIMIT AT TURN 16","ts":627841916522000,"p":7},{"Id":"884a283a-ba16-41d8-8402-7a794250285e","t":"CAR 2 LAP 2 AND 3 DELETED FOR ABUSE TRACK LIMIT AT TURN 16","ts":627841994085000,"p":7},{"Id":"02d77553-be42-4208-b223-b63284cf8980","t":"CAR 59 LAPS 4 AND 5 DELETED FOR ABUSE TRACK LIMIT AT TURN 16","ts":627842108101000,"p":7},{"Id":"ae192004-2595-4496-b4d2-3a6c34f1f540","t":"CAR 65 LAP 5 DELETED FOR ABUSE TRACK LIMIT AT TURN 10","ts":627842220413000,"p":7},{"Id":"2dd24b6c-a8bb-4241-9b9b-e96ca435c6e3","t":"CAR 45 LAP 5 DELETED FOR ABUSE TRACK LIMIT AT TURN 10","ts":627842328444000,"p":7},{"Id":"8a15727c-272d-421b-b04d-e18da35a6427","t":"CARS 12 LAP 7 AND 8 DELETED FOR ABUSE TRACK LIMIT AT TURN 16","ts":627842391205000,"p":7},{"Id":"ab062514-b5bd-410c-a91b-482c5f569a3d","t":"CARS 3 - 36 - 45 - 59  TO GO IMMEDIATELY TO SCRUTINEERING - ALL OTHER CARS IN THEIR GARAGE UNDER PARC FERME REGULATIONS","ts":627842568689000,"p":7},{"Id":"941745ef-fcc7-443b-93c1-745efbce8121","t":"PARC FERME FOR CARS INSIDE THEIR GARAGE WILL OPEN AT 17:40","ts":627844852300000,"p":7},{"Id":"b1f18a20-8169-4059-adda-b79bad4bf0f2","t":"OTHER CARS WILL BE RELEASED WHEN THE SCRUTINEERS RELEASE THEM","ts":627844894769000,"p":7},{"Id":"8077e9eb-489a-4980-9bdc-9395f1a67ec6","t":"ASIAN LMS - RACE CONTROL RADIO TEST AT 9:00","ts":627900600130000,"p":7},{"Id":"af9eaf0f-88f7-4f2c-83b3-86a4f5dcf3c2","t":"ASIAN LMS - PIT EXIT WILL OPEN AT 9:10","ts":627901060989000,"p":7},{"Id":"b71a6cac-acc9-433f-a530-25b574aa66c7","t":"RACE CONTROL RADIO TEST AT 9:05","ts":627901200820000,"p":7},{"Id":"b4518578-ee90-436a-913f-ec56d1f9e9dc","t":"PIT EXIT OPEN AT 9:10 AND WILL BE CLOSED AT 9:32","ts":627901548551000,"p":7},{"Id":"76a4a4dc-b1cd-40df-aada-37843c2dafa0","t":"PIT EXIT WILL OPEN AT 9:10 AND WILL BE CLOSED AT 9:30","ts":627901633207000,"p":7},{"Id":"1ad64017-0607-4085-96ef-db379b48f807","t":"PIT EXIT WILL OPEN ON SHORT CALL","ts":627901859819000,"p":7},{"Id":"3aa9cfef-61e7-4929-a07c-2913b5841e8a","t":"PIT EXIT OPEN AND WILL BE CLOSED AT 9:30","ts":627901989069000,"p":7},{"Id":"ff94b2b0-dcb7-417a-8d87-4f1f5033141a","t":"PIT EXIT CLOSES IN 2 MINUTES","ts":627902880420000,"p":7},{"Id":"b54bfea6-08c1-439d-a4b1-7311165ef026","t":"Yellow flag at T15","ts":627902978705000,"p":7},{"Id":"3052e6da-4b5e-451a-a5b6-26f9c9595f8f","t":"PIT EXIT CLOSED","ts":627903000626000,"p":7},{"Id":"5b99ce90-fe21-4a73-9fdd-103573cb97ab","t":"10 MINUTES TO START FORMATION LAP","ts":627903120230000,"p":7},{"Id":"306c8e3b-5ea2-4837-8eb2-9a33d1d5f380","t":"5 MINUTES TO START FORMATION LAP","ts":627903420502000,"p":7},{"Id":"581e8853-2f18-498f-affa-37defaeb0f02","t":"3 MINUTES TO START FORMATION LAP","ts":627903540269000,"p":7},{"Id":"9dc43fa0-627b-4f32-8f2c-bd0ddc0c6ed8","t":"1 MINUTE TO START FORMATION LAP","ts":627903660200000,"p":7},{"Id":"300874dc-5cd0-42d8-b844-83f7455b5f9f","t":"30 SECONDS TO START FORMATION LAP","ts":627903690957000,"p":7},{"Id":"3e2cd5f0-7037-4ef4-8108-2e881915606f","t":"GREEN FLAG, START OF FORMATION","ts":627903720235000,"p":7},{"Id":"9572d4e5-e0ab-4dd2-ae4a-1903e58a51c0","t":"REMIND DRIVERS TO GO TO GRID FORMATION AFTER EXIT T13","ts":627903788442000,"p":7},{"Id":"aacbe4da-b93a-4f55-adc6-e75924c325f1","t":"ALL CARS TO GRID FORMATION","ts":627903878395000,"p":7},{"Id":"35ce4156-08e8-4adb-b520-1a06353b522d","t":"RACE START","ts":627903988207000,"p":7},{"Id":"8027814d-1af1-43d3-bf55-8cbc9ea36af6","t":"START UNDER INVESTIGATION","ts":627904020739000,"p":7},{"Id":"1af098e0-38d3-41c9-8874-7efca4fd4607","t":"STARTING PROCEDURES : NFA","ts":627904399236000,"p":7},{"Id":"2537c720-58f1-4fbd-b14e-0429f833c06b","t":"Yellow flag at T10","ts":627904665158000,"p":7},{"Id":"f45738fa-d784-42f0-ac12-db1c78fc6b63","t":"CAR 33 SPUN AT THE EXIT OF TURN 10 AND CONTINUED","ts":627904715376000,"p":7},{"Id":"e4cb2028-d8cf-481b-94ce-cb0d1bbb0127","t":"Yellow flag at T1","ts":627904942228000,"p":7},{"Id":"eb5abd4f-8618-4fdf-8492-4b18114c4d03","t":"CAR 7 AND 27 SPUN AND CONTINUED AT TURN 1","ts":627904970306000,"p":7},{"Id":"38d124d4-f9c1-4c21-b700-0909fd34b4ba","t":"INCIDENT INVOLVING CAR 7 AND CAR 27 UNDER INVESTIGATION","ts":627905048994000,"p":7},{"Id":"0abb468d-9941-4d76-b79a-c5f35060d892","t":"TEAM MANAGER CAR 7 IMMEDIATELY TO RACE CONTROL","ts":627905139494000,"p":7},{"Id":"4438b28d-9f20-49f6-9525-a7cea0a366b3","t":"CAR 33 - DRIVER CORBETT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627905512613000,"p":7},{"Id":"85eb6b2a-1da5-45b6-97af-0c3259b72cc3","t":"CAR 34 - DRIVER SMIECHOWSKI - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627905534925000,"p":7},{"Id":"2773dc84-9048-4f03-a437-24095e200e00","t":"DRIVE THROUGH PENALTY - CAR 7 FOR CAUSING A COLLISION WITH CAR 27 AT T1","ts":627905716753000,"p":15},{"Id":"e6ebb803-d48e-4dae-8965-75e53de38bd2","t":"CAR 3 - DRIVER HODES - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627905804910000,"p":7},{"Id":"ebc77423-d33e-4765-9778-0bcc942c7862","t":"CAR 77 - DRIVER FUJI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627905843160000,"p":7},{"Id":"13abcfa6-3124-482f-a5ff-59e64d280a66","t":"CAR 77 - DRIVER  - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627905874722000,"p":7},{"Id":"35ee9f1d-56c4-4163-a1b2-2dfe852470ec","t":"CAR 75 - DRIVER TJIPTOBIANTORO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627905915081000,"p":7},{"Id":"c1a8e6a4-a097-483c-b569-5914bef3d94b","t":"CAR 77 - DRIVER FUJI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627905928285000,"p":7},{"Id":"b6e228b1-833a-435e-8aca-e1d9f1b601d5","t":"CAR 3 - DRIVER HODES - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627905975503000,"p":7},{"Id":"49bce355-b1ed-4abb-affe-adc2e6d25761","t":"CAR 12 - DRIVER BRESSAN - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627906007618000,"p":7},{"Id":"787987f0-34fa-422a-b29f-79b0fce7d896","t":"CAR 65 MUST REPAIR REAR LEFT LIGHT AND BRAKE LIGHTS IN THE NEXT PIT STOP","ts":627906140134000,"p":7},{"Id":"2e8c4814-f8af-42a0-85d6-f0bff1aa679c","t":"CAR 96 - DRIVER THONG - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627906221774000,"p":7},{"Id":"8d2b3007-4ed3-413d-a8f4-d61c855b2b7f","t":"CAR 13 - DRIVER HIPPE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627906245962000,"p":7},{"Id":"efada0bc-0dc7-4e0f-b220-bddcdb11f582","t":"CAR 33 - DRIVER CORBETT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627906294056000,"p":7},{"Id":"81e58dd2-601d-4519-8986-b7e70fcde3be","t":"CAR 75 - DRIVER TJIPTOBIANTORO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627906559993000,"p":7},{"Id":"4069b749-8e3a-480d-99a8-ea02660a8d1e","t":"CAR 65 - DRIVER KHOO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627906581380000,"p":7},{"Id":"4da29c5a-0b91-4e70-9c11-1133a1299f8a","t":"CAR 9 - DRIVER TROUILLET - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627906761317000,"p":7},{"Id":"331ae183-4897-40a0-bb31-92cd84e233a2","t":"CAR 77 - DRIVER FUJI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627906815848000,"p":7},{"Id":"c034c51f-c452-4fa7-b507-1a5b54f8a9b0","t":"CAR 27 - DRIVER CHEN - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627906851364000,"p":7},{"Id":"a2cd6c23-e35f-4d9a-a0ed-90d94b7ee247","t":"BLACK AND WHITE FLAG - CAR 3 FOR ABUSE OF TRACK LIMITS AT TURN 10","ts":627906960880000,"p":15},{"Id":"a4dde22b-d61e-4d68-b147-b5a66c98ecc7","t":"CAR 75 - DRIVER TJIPTOBIANTORO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627907141317000,"p":7},{"Id":"b57b1525-0451-4178-a64d-9abfba900f9d","t":"Yellow flag at T7","ts":627907201228000,"p":7},{"Id":"de0d3766-774e-440b-99a1-99e2095cf649","t":"CAR 45 - DRIVER BARNICOAT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627907595916000,"p":7},{"Id":"f6edfd83-2ee7-4682-a18f-eba30f35e172","t":"CAR 34 - DRIVER SMIECHOWSKI - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627907629650000,"p":7},{"Id":"33d1066f-2c4b-4a1d-9561-7f293e033fa5","t":"CAR 7 - DRIVER KIMURA - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627907664822000,"p":7},{"Id":"47204cbc-211f-4332-8026-55bc41feafd3","t":"CAR 65 - DRIVER ANG - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627907972825000,"p":7},{"Id":"6bc2bc13-028b-4132-8d79-d882fa799b71","t":"CAR 7 - DRIVER COZZOLINO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627908396270000,"p":7},{"Id":"64796b46-7b67-415c-af17-4e1b269d9295","t":"CAR 12 - DRIVER LANCIERI - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627908534488000,"p":7},{"Id":"dde9466b-fb92-493e-88eb-de255af08deb","t":"CAR 1 SLOW ON TRACK APPROACHING T15 ON DRIVERS RIGHT","ts":627908795254000,"p":7},{"Id":"5490b842-89de-4d06-a896-3cd8524c613a","t":"CAR 88 - DRIVER SHIBATA - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627908916895000,"p":7},{"Id":"35c1492f-75d0-4d43-a371-a23b84a79158","t":"CAR 77 - DRIVER HOSHINO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627909618563000,"p":7},{"Id":"361d1567-29eb-4a7e-85db-310091284ef1","t":"CAR 9 - DRIVER PAGE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627909760485000,"p":7},{"Id":"a7303e69-0580-4b49-b98b-dbd5bd451352","t":"Yellow flag at T13","ts":627910075547000,"p":7},{"Id":"3057926e-73c5-4a7a-9537-52f0d29924c2","t":"PREPARE FOR FCY AT 11:29","ts":627910101625000,"p":7},{"Id":"789223a2-5eda-46bf-955e-1b06fa8c533b","t":"Yellow flag at T13","ts":627910118219000,"p":7},{"Id":"67eb4b72-d53f-45d8-a550-ccd88be72fb0","t":"CAR 90 STOPPED AT THE RHS OF THE MAIN STRAIGHT OF AFTER T13","ts":627910308282000,"p":7},{"Id":"ff7964d6-0b79-4249-bc92-15a52254f9b8","t":"PIT ENTRY CLOSED","ts":627910505282000,"p":7},{"Id":"d88a45da-88a0-40be-9fee-0d9e19f83449","t":"ALL CARS SPEED UP TO CATCH SC","ts":627910676297000,"p":7},{"Id":"73504ef6-4bce-43ed-9d97-5a36499a5aab","t":"PREPARE FOR PASS AROUND","ts":627910880298000,"p":7},{"Id":"fd30f500-94d7-484a-88af-829ec1e3861b","t":"START THE PASS AROUND","ts":627910925080000,"p":7},{"Id":"33d434fe-a1aa-48cc-932b-95c588792cce","t":"PIT ENTRY OPEN","ts":627910971658000,"p":7},{"Id":"40762343-48d1-47bd-b374-70fd8a0c621c","t":"PIT ENTRY CLOSED","ts":627910999142000,"p":7},{"Id":"4e9381ac-7e83-4480-88c5-8affb790a854","t":"PIT ENTRY OPENED","ts":627911268314000,"p":7},{"Id":"5550dc00-0ddd-48ca-b35d-dd391bfcb68b","t":"SAFETY CAR INSTRUCTED TO GO FULL SPEED","ts":627911411220000,"p":7},{"Id":"2813b47f-acc5-43dd-b480-ae33e51f4db0","t":"SAFETY CAR PROCEDURES UNDER INVESTIGATION","ts":627911427408000,"p":7},{"Id":"0b42e8b8-d2ed-446f-801b-87147175bbaf","t":"SAFETY CAR IN THIS LAP","ts":627911622798000,"p":7},{"Id":"b9612927-1411-475a-bec9-f6ab7118b43c","t":"Yellow flag at T14","ts":627911714689000,"p":7},{"Id":"46175e55-503f-4091-a903-01b5b803edea","t":"DOUBLE YELLOW AT T14","ts":627911736376000,"p":7},{"Id":"b20a1ac9-2116-49fc-a433-a8179e51009f","t":"PREPARE FOR FCY AT 11:56:30","ts":627911774439000,"p":7},{"Id":"c4241bfc-303d-41db-b908-a356b09ae18d","t":"CAR 3 PLEASE GIVE BACK POSITION TO CAR 59","ts":627911989305000,"p":7},{"Id":"8f4a5bb8-b09e-49d4-87d2-396595c1bb7c","t":"FCY WILL END AT 12:01","ts":627912023118000,"p":7},{"Id":"b6730b0e-b075-482c-8e7e-356f0d86e598","t":"TEAM MANAGER CAR 33 AND 34 IMMEDIATELY TO RACE CONTROL","ts":627912280337000,"p":7},{"Id":"43553e28-d13a-4305-aec4-b8999b2b2e27","t":"END OF FCY UNDER INVESTIGATION","ts":627912493915000,"p":7},{"Id":"adacc80e-5a8d-4cdc-8801-e9df4c2c58db","t":"TEAM MANAGER CAR 45 IMMEDIATELY TO RACE DIRECTOR","ts":627912804162000,"p":7},{"Id":"f3559e1c-d702-49c2-b74d-a943541008c0","t":"CAR 65 - DRIVER KHOO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627912911287000,"p":7},{"Id":"ac7983ad-b41f-4181-9e7c-3434f5304aa3","t":"CAR 26 - DRIVER HOOGENBOOM - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627912944021000,"p":7},{"Id":"fcbf4d11-bd24-404c-81df-fafea080857c","t":"CAR 9 - DRIVER PAGE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627912969271000,"p":7},{"Id":"6dd626d2-f2e8-4884-aa31-293c35d90ba6","t":"CAR 51 - DRIVER PIERGUIDI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627912995662000,"p":7},{"Id":"54be99dc-7cca-4c63-b3a3-ffd1dd74d1c4","t":"CONCERNING FCY : NFA","ts":627913146006000,"p":7},{"Id":"8a1c057a-2df6-4379-8b01-5ddd90bb13a2","t":"3 MIN 50 SEC STOP AND GO PENALTY CAR 33  - FOR ABUSING PASS AROUND (STW DECISION #13)","ts":627913362448000,"p":15},{"Id":"27c80547-74a3-4a7b-b799-3c1a2458cd28","t":"3 MIN 50 SEC STOP AND GO PENALTY CAR 34  -  FOR ABUSING PASS AROUND (STW DECISION #14)","ts":627913409964000,"p":7},{"Id":"06a3b787-eade-4968-9bc6-991ed2d0fe93","t":"CONCERCING SC AND FCY PROCEDURES : NFA","ts":627913472558000,"p":7},{"Id":"24a7be80-a44a-436f-91f9-97b7abba445d","t":"CAR 45 - DRIVER BARNICOAT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627913707730000,"p":7},{"Id":"8b157405-49ef-46c6-9035-31490e9bec8e","t":"CAR 34 - DRIVER BECHE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627913733901000,"p":7},{"Id":"ce179e5f-3ba1-42b8-bc1f-ba95a69d2170","t":"CAR 9 - DRIVER PAGE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627913810142000,"p":7},{"Id":"60263d1e-6e5f-4b00-b680-51fd3800871e","t":"CAR 65 - DRIVER KHOO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627913930345000,"p":7},{"Id":"e6d50b20-d0de-41b4-bed0-951faec50330","t":"CAR 77 - DRIVER GUNN - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627914041376000,"p":7},{"Id":"d58e926b-8936-4c82-a5a3-0d8617abab91","t":"CAR 17 - DRIVER KLINGMANN - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627914068532000,"p":7},{"Id":"9060bcc6-97be-46b2-ab0f-25e7834a5898","t":"BLACK AND WHITE FLAG - CAR 9 FOR ABUSE OF TRACK LIMITS AT TURN 16","ts":627914098095000,"p":15},{"Id":"eccbcb87-8a75-4528-97cb-74e4b343e352","t":"CAR 7 - DRIVER COZZOLINO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627914287439000,"p":7},{"Id":"94128ac1-bdde-4fd1-8cec-2a46974e93b7","t":"CAR 51 - DRIVER PIERGUIDI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627914341329000,"p":7},{"Id":"a371b243-a1be-4dd1-9434-1166580e1a8f","t":"Yellow flag at T15","ts":627914522309000,"p":7},{"Id":"85f1db17-4cce-4703-abb7-0eb7df2d1ba0","t":"Yellow flag at T15","ts":627914585762000,"p":7},{"Id":"befcc866-172b-4157-b838-4babbc7259dd","t":"CAR 4 STOPPED AFTER THE EXIT OF T14 RHS","ts":627914601824000,"p":7},{"Id":"a700601b-7ca2-40ce-b403-7197ee6a0e1c","t":"PREPARE FOR FCY AT 12:44","ts":627914621840000,"p":7},{"Id":"c227da32-4208-4c31-9f69-634c7006ba3a","t":"FCY WILL END AT 12:53","ts":627915157686000,"p":7},{"Id":"3ace4a65-6f45-4f48-8416-cddae7b060b3","t":"SPEED UNDER FCY UNDER INVESTIGATION","ts":627915577826000,"p":7},{"Id":"42b937c9-5560-4805-8cd2-a5483ae22e46","t":"CAR 2 - DRIVER NOBLE - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627915678801000,"p":7},{"Id":"0e1cc21d-39e4-431e-93f9-f4868be4bc1c","t":"CAR 7 - DRIVER FUOCO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627915725957000,"p":7},{"Id":"f37d19ef-2aab-457f-a5fc-308830569691","t":"PIT STOP OF CAR 65 UNDER INVESTIGATION","ts":627915949051000,"p":7},{"Id":"7f3c0ab1-dbb6-4aa2-828b-6c7d5272aaac","t":"CAR 27 - DRIVER RIGON - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627916028332000,"p":7},{"Id":"f81d6f4d-2887-42c8-a39c-40916441eb38","t":"CAR 45 - DRIVER BARNICOAT - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627916173535000,"p":7},{"Id":"3ccb5b9c-ee06-4330-8da0-88812d25eda6","t":"CAR 7 - DRIVER FUOCO - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627916255187000,"p":7},{"Id":"cb91ef86-5f17-4bcc-b3e8-b2ae9bf3c489","t":"CAR 27 - DRIVER RIGON - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627916409828000,"p":7},{"Id":"1ec3fcb5-4f50-4073-87b5-d732de446731","t":"CAR 36 - DRIVER MERHI - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627916443359000,"p":7},{"Id":"086b1252-8a5c-44d4-9d31-7dce57bdc106","t":"BLACK AND WHITE FLAG - CAR 45 FOR ABUSE OF TRACK LIMITS AT TURN 16","ts":627916539718000,"p":15},{"Id":"2100fe60-0b3a-40e9-b130-070d8ac24e7a","t":"CAR 13 - DRIVER MOORE - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627916569109000,"p":7},{"Id":"7e487e5c-340b-4b91-aded-ab5394f7aab7","t":"PIT STOP TIMES UNDER INVESTIGATION","ts":627916627375000,"p":7},{"Id":"dde48209-bee1-46a0-9291-690a4cbc605f","t":"TEAM MANAGER CAR 65 IMMEDIATELY TO RACE DIRECTOR","ts":627916719578000,"p":7},{"Id":"a1dae248-9737-4be7-b8c4-0a8a2e008a86","t":"1 SEC STOP AND GO PENALTY CAR 88 - FOR PSRT INFRINGEMENT (STD #15)","ts":627916800703000,"p":15},{"Id":"10095596-e089-47e8-83e6-d5012c15b2a2","t":"CAR 9 - DRIVER DROUX - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627916967406000,"p":7},{"Id":"20fd945c-de0a-4b2e-8579-c15b9af7af34","t":"CAR 36 - DRIVER MERHI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627916999296000,"p":7},{"Id":"38ffb0f7-ceac-4483-890a-52a6542b3013","t":"CAR 27 - DRIVER RIGON - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627917076078000,"p":7},{"Id":"e1ed86b3-f0ff-4c95-9b35-9159654c8ae6","t":"CAR 17 - DRIVER KLINGMANN - MUST RESPECT TRACK LIMIT AT TURN 10","ts":627917473057000,"p":7},{"Id":"6b5bec96-eb3e-465f-a024-7605547d3172","t":"CAR 45 - DRIVER TINCKNELL - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627917501120000,"p":7},{"Id":"801cd348-e72e-44ae-9d2f-0b374842265d","t":"PIT STOP CAR 65 : NFA","ts":627917692917000,"p":7},{"Id":"6c775309-14ee-490f-bd6e-fe855e3b90a5","t":"CAR 7 - DRIVER FUOCO - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627917758307000,"p":7},{"Id":"257d8e9f-de5a-4f19-8306-c1b9ef7e4d40","t":"CAR 36 - DRIVER MERHI - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627917812636000,"p":7},{"Id":"106a41d9-fbd7-4cdd-b262-2d52ebf4422b","t":"BLACK AND WHITE FLAG - CAR 36 FOR ABUSE OF TRACK LIMITS AT TURN 16","ts":627918203173000,"p":15},{"Id":"437cb35b-3604-4210-bb76-6f9ab4484f56","t":"CAR 3 - DRIVER GRIST - MUST RESPECT TRACK LIMIT AT TURN 16","ts":627918232673000,"p":7},{"Id":"183900eb-83a5-4ed0-ae66-7f28c0c7b70a","t":"CAR 96 SLOW ON TRACK","ts":627918378782000,"p":7},{"Id":"d7733490-c792-47a2-b97c-8391ab27fb27","t":"Yellow flag at T9","ts":627918410563000,"p":7},{"Id":"b819b5bb-2ef4-4f26-b3dc-9ba757eea84b","t":"CAR 96 STOPPED AT TURN 9 ","ts":627918446548000,"p":7},{"Id":"d5403394-868b-4dd7-9a9e-6e83bdec7753","t":"CARS 13 – 26 – 59 – 77 - 88 IMMEDIATELY TO SCRUTINEERING, ALL OTHER CARS TO PARC FERME","ts":627918528095000,"p":7},{"Id":"338f5add-8f21-40e3-ad81-53043cc1cdbb","t":"END OF SESSION","ts":631886252000000,"p":7},{"Id":"5e129ec4-5a02-4ced-a59b-a83e39137474","t":"SESSION WILL END AT 12:37","ts":631973804000000,"p":7},{"Id":"7deb77b7-b2d6-4577-a6ff-996cf30ae12f","t":"ASIAN LMS - FREE PRACTICE 1 WILL START ON TIME AT 16:10","ts":631987166519000,"p":7},{"Id":"dfeb34a0-cd4a-4e43-b441-84d805f4457d","t":"TEAM RADIO CHECK WILL BE AT 16:05","ts":631987181504000,"p":7},{"Id":"e5723581-e700-43cb-89ae-315a89987102","t":"WET TRACK IS DECLARED, PLEASE HAVE THE REAR RAIN LIGHTS ON WHEN GOING ON TRACK","ts":631987204457000,"p":7},{"Id":"1732824b-a638-4590-9597-00d6bd2b7f95","t":"TEAM RADIO CHECK WILL BE AT 16:05","ts":631987411972000,"p":7},{"Id":"66ad2265-3406-4ef0-9553-92fe21a4840a","t":"ALMS - PIT EXIT WILL OPEN AT 16:10","ts":631987519972000,"p":7},{"Id":"e5db75db-10b0-4a02-b226-d667c1668419","t":"PIT LANE OPEN","ts":631987800632000,"p":7},{"Id":"5340bd81-37d5-406b-8a52-2a1e15de878b","t":"Yellow flag at T32","ts":631988866388000,"p":7},{"Id":"3a17c2aa-28f2-4ea7-8784-08bbed5cfe7f","t":"CAR 75 STOPPED RUNOFF AT TURN 32","ts":631989140309000,"p":7},{"Id":"435c240c-501d-4030-ab43-d6a7cd300b5a","t":"GREEN FLAG","ts":631989337388000,"p":7},{"Id":"682fb6e9-0c83-493c-a5d4-7e73c85bd907","t":"SPEED DURING RED FLAG UNDER INVESTIGATION","ts":631989498257000,"p":7},{"Id":"3ee62dec-dc42-49c4-80dd-28886c5d6fb2","t":"CAR 25 PLEASE CHECK THE PROPER ID OF THE TRANSPONDER","ts":631989877304000,"p":7},{"Id":"63e99745-7bfe-40a0-9e91-7951b7b7270e","t":"CAR 26 SPUN AT TURN 31 AND REJOINED","ts":631990259147000,"p":7},{"Id":"6cd50653-10ba-4598-ba01-a22effbca2ae","t":"REAR RAIN LIGHTS MAY TURN OFF","ts":631991033055000,"p":7},{"Id":"fccb1815-2693-4c8b-a67d-ffbdbef1d689","t":"CAR 14 SPUN AND CONTINUED AT TURN 1","ts":631991274061000,"p":7},{"Id":"f59b2494-5641-4ecd-9508-f3c6cc99a623","t":"TEAM MANAGER CAR 25 IMMEDIATELY TO RACE CONTROL","ts":631992138075000,"p":7},{"Id":"f1405a15-0f46-4661-87ac-5243054e1edf","t":"Yellow flag at T16","ts":631992808398000,"p":7},{"Id":"a6ec98d3-d98e-4901-a1ba-c3267c8007ac","t":"PREPARE FOR FCY AT 17:36","ts":631992930257000,"p":7},{"Id":"52f3677f-9468-406d-a2ee-672b53b1890b","t":"CAR 14 STOPPED ON THE RHS OF TRACK AT TURN 17 ","ts":631993040982000,"p":7},{"Id":"463be8e3-5acf-40ef-9c1d-5b4a2b7364b5","t":"SESSION WILL END WITH FCY","ts":631993132154000,"p":7},{"Id":"6a4b191e-226f-431b-ba43-d9c2c602bfde","t":"CHEQUERED FLAG","ts":631993224857000,"p":7},{"Id":"6370d882-d7df-450b-9e8b-ea20d5388af9","t":"TEAM MANAGER CAR 88 IMMEDIATELY TO RACE CONTROL","ts":631993345076000,"p":7},{"Id":"c0a2016b-7653-4fd4-827a-6b85407196e1","t":"FCY SPEED UNDER INVESTIGATION","ts":631993386263000,"p":15},{"Id":"f23c6cb1-9bc2-4035-b8f0-1cf0f5cf2601","t":"Yellow flag at T16","ts":631993458435000,"p":7},{"Id":"dbb3a1d4-72ad-45fd-b08c-bc694f5a39b8","t":"FREE PRACTICE 2 WILL START ON TIME AT 9:30","ts":632049750990000,"p":7},{"Id":"5f90a4b1-5f86-4ebd-8cb8-e38c32685e3c","t":"RADIO TEST WILL BE AT 9:25","ts":632049790646000,"p":7},{"Id":"56f68dc9-03fa-4586-9bae-31bf56022559","t":"PIT LANE WILL OPEN AT 9:30","ts":632050102776000,"p":7},{"Id":"d2313a7d-8546-43a0-b993-7ced6e9e9d80","t":"PIT EXIT OPEN","ts":632050200760000,"p":7},{"Id":"d027cba7-cf2f-4160-a17d-248535dce628","t":"Yellow flag at T30","ts":632052581027000,"p":7},{"Id":"45a80d15-24e7-42cd-9fb6-192e9cf3e2c4","t":"CAR 52 STOPPED ON THE RUNOFF AT TURN 30","ts":632052638949000,"p":7},{"Id":"4c940419-ee4d-478f-8040-200670c17992","t":"ESTIMATED RESTART OF THE SESSION AT 10:20 (TBC)","ts":632053031121000,"p":7},{"Id":"98de8622-2e77-42dd-8469-383ec9a275d9","t":"SESSION WILL RESTART ON A SHORT CALL","ts":632053164965000,"p":7},{"Id":"a7531631-f64e-4d34-a4c2-309ac28ab1cf","t":"SESSION WILL RESTART AT 10:20","ts":632053185981000,"p":7},{"Id":"89bbdd51-9368-4377-a4a4-0d92095759de","t":"PIT LANE OPEN","ts":632053204965000,"p":7},{"Id":"216e332e-7bd5-4893-be56-f32c8ffc9343","t":"SPEED DURING RED FLAG UNDER INVESTIGATION","ts":632053393496000,"p":15},{"Id":"b4fe1508-10cb-42d8-899d-ebb58378ead6","t":"Yellow flag at T25","ts":632055326097000,"p":7},{"Id":"21abea3b-5982-473b-b5c0-7f521c5f3a85","t":"CAR 16 STOPPED IN GRAVEL AT TURN 25","ts":632055342863000,"p":7},{"Id":"ef554931-c869-44f4-bb61-4f8101dd8472","t":"DOUBLE YELLOW AT TURN 23 TO 26","ts":632055390441000,"p":7},{"Id":"6b1f6642-e201-460b-ac01-5d72c2f38989","t":"Yellow flag at T25, T24, T23","ts":632055501806000,"p":7},{"Id":"5e225817-bffe-428a-86b4-ddf93b539433","t":"Yellow flag at T23, T24, T25, T26","ts":632055504009000,"p":7},{"Id":"b929a26c-d6e5-4c26-85d4-79d4057f0f18","t":"CAR 1 REPORTED TO THE STEWARDS FOR OVERTAKING UNDER YELLOW","ts":632055569790000,"p":7},{"Id":"c2679a51-c9af-4a4d-b2b7-fa3f164b302b","t":"CHEQUERED FLAG","ts":632055603915000,"p":7},{"Id":"942fe73c-422d-4619-ad2b-d67a399d5605","t":"CAR 33  UNDER INVESTIGATION - FOR POSSIBLE IMPORVEMENT OF SECTOR TIME UNDER YELLOW","ts":632055880072000,"p":15},{"Id":"37fedc0f-17f6-4b1b-a8de-da7cb69911d1","t":"Yellow flag at T25, T24, T23","ts":632055974822000,"p":7},{"Id":"e55dde26-17b5-46de-91e0-693647e9d718","t":"Yellow flag at T24, T23","ts":632055975837000,"p":7},{"Id":"e0b4d82a-3274-4a7e-8311-4aecd33a69bf","t":"PIT WALL RADIO TEST AT 13:20","ts":632063760683000,"p":7},{"Id":"0fa55ca7-a5c8-4d52-a307-51f2246add51","t":"QUALIFYING GT WILL START ON TIME AT 13:30","ts":632064060794000,"p":7},{"Id":"2fd9826a-f3e3-4c9d-abf1-3ca9d65b0964","t":"PIT WALL RADIO TEST AT 13:25","ts":632064193216000,"p":7},{"Id":"1fa3e3da-77f0-44e4-8eb5-23e5fc12a4ce","t":"GT CARS MAY NOW BE PUSHED TO PIT LANE","ts":632064323669000,"p":7},{"Id":"b93f28a0-daba-4e44-8ab2-8eb7ffd02c48","t":"ANY LAP REPORTED COMPLETELY BEYOND THE TRACK LIMITS WILL BE IMMEDIATELY DELETED","ts":632064490273000,"p":7},{"Id":"7e92b45a-15bf-498a-a8a8-83ff7cd670c8","t":"PIT EXIT OPEN","ts":632064600616000,"p":7},{"Id":"3b9dab81-1b95-4a14-9304-9d7e6efe85f0","t":"CAR 88 LAP 2 DELETED FOR ABUSE TRACK LIMIT AT TURN 27","ts":632065009626000,"p":7},{"Id":"5fb5cac9-0f32-4c6f-bae1-f30d95c3c148","t":"CAR 51 LAP 3 DELETED FOR ABUSE TRACK LIMIT AT TURN 29","ts":632065250407000,"p":7},{"Id":"9d6bdcc4-c6e9-4f6c-a974-86a40641e123","t":"CAR 75 LAP 4 DELETED FOR ABUSE TRACK LIMIT AT TURN 6","ts":632065318329000,"p":7},{"Id":"f186f59d-51eb-4d2f-9f76-d3c323076f80","t":"CARS 27 - 88, IMMEDIATELY TO SCRUTINEERING, ALL OTHER CARS IN THEIR GARAGE UNDER PARC FERME REGULATION","ts":632065612890000,"p":7},{"Id":"63645a95-f0e3-4057-8794-9353bb38e366","t":"LMP 3 CARS MAY PUSHED TO THE WORKING LANE AT 13:55","ts":632065840656000,"p":7},{"Id":"b261b30a-044b-4f70-9dc4-5afc8042f010","t":"PIT EXIT WILL OPEN AT 14:00","ts":632065864734000,"p":7},{"Id":"d6013e30-4fdd-48c6-9be3-9078eb7125d6","t":"LMP 3 CARS MAY NOW PUSHED TO THE WORKING LANE","ts":632066102234000,"p":7},{"Id":"ca357488-ece4-4d86-8834-672a6cb90a8c","t":"3 MIN TO OPEN PIT EXIT","ts":632066220156000,"p":7},{"Id":"3c9925d8-5c1c-405c-86d7-75b3974f45a6","t":"ANY LAP REPORTED COMPLETELY BEYOND THE TRACK LIMITS WILL BE IMMEDIATELY DELETED","ts":632066237676000,"p":7},{"Id":"74e24343-4ba6-4514-a3a0-de262429d7ff","t":"1 MIN TO OPEN PIT EXIT","ts":632066340890000,"p":7},{"Id":"868498af-1789-4c9a-beb8-4ec3551b1be1","t":"30 SEC TO OPEN PIT EXIT","ts":632066370723000,"p":7},{"Id":"7712f5e5-0667-4f98-a222-341e0daad370","t":"PIT EXIT OPEN","ts":632066400301000,"p":7},{"Id":"b22cf1d4-9f5e-4aa5-b778-7af7b60bc0c7","t":"CAR 12 LAP 1 DELETED FOR ABUSE TRACK LIMIT AT TURN 29","ts":632066611551000,"p":7},{"Id":"a4ca76f4-6c37-44d7-9ab6-d2ab05b6e0f0","t":"CAR 3 SLOW AFTER TURN 10","ts":632066707504000,"p":7},{"Id":"d5395271-8d3d-4daf-93bf-b386f414fb9a","t":"CAR 3 STOPPED ON TRACK AT TURN 9","ts":632066719786000,"p":7},{"Id":"27cae2fe-93b1-4e55-b4f7-7dcd82cb186a","t":"SESSION WILL RESTART ON A SHORT CALL (14:14 TBC)","ts":632067176196000,"p":7},{"Id":"25b37b2d-f008-409b-aa08-a3d30fbf30b4","t":"SESSION WILL RESTART AT 14:15:30","ts":632067329087000,"p":7},{"Id":"a53ea614-f9d5-40f9-9b9b-9ab8bb2ccfba","t":"PIT EXIT OPEN","ts":632067337946000,"p":7},{"Id":"342bb2cc-da4e-4380-9e8f-b2a7d42835a0","t":"CAR 9 LAP 2 DELETED FOR ABUSE TRACK LIMIT AT TURN 30","ts":632067575453000,"p":7},{"Id":"7baf2952-1ab7-40a8-9d2d-3dbf58e05e2b","t":"CAR 65 REPORTED TO THE STEWARDS FOR SPEEDING AT PIT ENTRY","ts":632067690625000,"p":15},{"Id":"ce23a0b1-3918-4076-b470-7a620ef1246a","t":"CAR 14 LAP 3 DELETED FOR ABUSE TRACK LIMIT AT TURN 31","ts":632067795265000,"p":7},{"Id":"ee5db363-9280-44ac-95d9-0e891f6245bb","t":"CAR 13 LAP 4 DELETED FOR ABUSE TRACK LIMIT AT TURN 1","ts":632067805328000,"p":7},{"Id":"1807d57f-1cd5-4978-958d-c1317d8aaa09","t":"LMP 2 QUALIFYING WILL BE DELAYED TO 14:35","ts":632067994969000,"p":7},{"Id":"00241b4b-028a-4cec-85c1-616b25c5787a","t":"ALL LMP3 CAR NOT SELECTED STAY INSIDE THE GARAGES UNDER PARC FERME REGULATIONS","ts":632068279410000,"p":7},{"Id":"1be8f559-1003-4339-bdea-131fa357e0c2","t":"LMP 2 CARS MAY NOW BE PUSHED TO THE WORKING LANE","ts":632068291238000,"p":7},{"Id":"ea194f84-575d-43c6-a94d-f52c9a0c5f8c","t":"PIT EXIT OPEN AT 14:35","ts":632068322535000,"p":7},{"Id":"aeecf54c-3dc6-4468-b10c-a3911fc8e72e","t":"1 MIN TO OPEN PIT EXIT","ts":632068440738000,"p":7},{"Id":"16b80bfe-4fa4-46a1-97a0-509e71bf9a95","t":"ANY LAP REPORTED COMPLETELY BEYOND THE TRACK LIMITS WILL BE IMMEDIATELY DELETED","ts":632068450066000,"p":7},{"Id":"d92351f4-4a28-4d25-9b35-d4250c3db114","t":"30 SEC TO OPEN PIT EXIT","ts":632068470676000,"p":7},{"Id":"dbfb5548-c4c9-46d8-ba95-c1f517bc4201","t":"PIT EXIT OPEN","ts":632068500582000,"p":7},{"Id":"44980562-5a71-4593-b083-43171bb45348","t":"CAR 34 LAP 2 DELETED FOR ABUSE TRACK LIMIT AT TURN 3","ts":632068740139000,"p":7},{"Id":"f37d6151-582e-4b30-871c-2e5f59b18c18","t":"CAR 45 LAP 2 DELETED FOR ABUSE TRACK LIMIT AT TURN 26","ts":632068806593000,"p":7},{"Id":"b3dc9404-0ced-4329-9c10-7217e344c21c","t":"CAR 45 LAP 2 DELETED FOR ABUSE TRACK LIMIT AT TURN 26","ts":632068870921000,"p":7},{"Id":"cc65c687-5f6c-426b-afcd-93f28d586077","t":"SESSION WILL RESTART ON A SHORT CALL","ts":632068933764000,"p":7},{"Id":"2f08fc50-c0d8-449f-9690-c5c26fdd51ee","t":"SESSION WILL RESTART AT 14:44","ts":632069004421000,"p":7},{"Id":"da808512-a47c-423b-bdb2-ad71ecc0469c","t":"PIT EXIT OPEN","ts":632069043811000,"p":7},{"Id":"9f6161c5-4a37-49fd-82c0-4767a0ab04a8","t":"CAR 25 LAP 3 UNDER INVESTIGATION","ts":632069425157000,"p":7},{"Id":"d7cd87ac-be91-4f21-9c82-7ccb69a09fcf","t":"CAR 52 LAP 4 DELETED FOR ABUSE TRACK LIMIT AT TURN 29","ts":632069624079000,"p":7},{"Id":"d34b1ab4-0d80-4252-a52f-76e5b588f85d","t":"CARS 1 - 45 - 59 TO THE SCRUTINEERING BAY","ts":632069679516000,"p":7},{"Id":"2377375c-1e65-4816-ac11-20c16af99b29","t":"ALL OTHERS NOT SELECTED STAY INSIDE THE GARAGES UNDER PARC FERME REGULATIONS","ts":632069686751000,"p":7},{"Id":"e3adb6ab-a82a-4d0a-9953-735b7ef7e092","t":"CAR 25 LAP 3 DELETED FOR ABUSE TRACK LIMIT AT TURN 30","ts":632069963000000,"p":7},{"Id":"6bcaab79-9193-45a2-a320-b2f151269734","t":"PIT WINDOW OPEN FROM 17:22 UNTIL 17:42","ts":632076786000000,"p":7},{"Id":"22f5ea21-f53b-49f8-b0ab-32a6ab6316e8","t":">> PIT WINDOW OPEN FROM 17:08 UNTIL 17:28 <<","ts":632076875000000,"p":7},{"Id":"baba2d95-1fbe-4f5c-a4e7-aafd51995e35","t":"PIT LANE IS OPEN","ts":632077608000000,"p":7},{"Id":"1671f2dd-bb5a-469c-a127-dec03c8b5919","t":"PIT WINDOW OPEN","ts":632077709000000,"p":7},{"Id":"4f2fb0b6-51eb-4e3b-bf20-aedfeb80cd9a","t":"PIT WINDOW IS CLOSED","ts":632078774000000,"p":7},{"Id":"576b0c2c-36bf-4c9a-b8bc-6222f2b2a006","t":"PIT WINDOW CLOSED","ts":632078909000000,"p":7},{"Id":"80b9e742-131c-46b2-a0c3-7c725f10caa2","t":"PIT WINDOW OPEN","ts":632138522000000,"p":7},{"Id":"1eaefce4-7809-4d9c-9f3e-7553b67d5883","t":"PIT WINDOW OPEN","ts":632138941000000,"p":7},{"Id":"751e7bd6-9b69-4ad7-90af-4450f8eb7d0d","t":"PIT WINDOW CLOSED","ts":632139722000000,"p":7},{"Id":"ff7781fa-310d-4028-b046-4b95190ba697","t":"ASIAN LMS - PIT EXIT WILL OPEN AT 12:25","ts":632145900857000,"p":7},{"Id":"edfed8c7-e2aa-4bcb-8783-64c546fc5587","t":"ASIAN LMS - RADIO TEST WILL BE AT 12:15","ts":632146200220000,"p":7},{"Id":"f0aae962-16d7-4792-b31d-db495c1d1d40","t":"ASIAN LMS - RADIO TEST WILL BE AT 12:20","ts":632146500827000,"p":7},{"Id":"7ee96599-cd58-4a3b-8ecc-b5373f2bfca6","t":"ASIAN LMS - PIT EXIT IS NOW OPENED - WILL CLOSE AT 12:35","ts":632147100564000,"p":7},{"Id":"60c21b22-fe29-4adc-b5b7-84ff1351b3e5","t":"PIT EXIT CLOSES IN 2 MINUTES AT 12:35","ts":632147580281000,"p":7},{"Id":"33651481-76d2-496a-ac6e-bf40e0128006","t":"PIT EXIT CLOSED","ts":632147700374000,"p":7},{"Id":"03e71f7e-b27a-461f-ac56-2fb42c035ef2","t":"10 MINS UNTIL START OF FORMATION LAP","ts":632148452883000,"p":7},{"Id":"bacfa45e-99ec-415b-a048-aeef0092d3bb","t":"5 MINS UNTIL START OF FORMATION LAP","ts":632148720383000,"p":7},{"Id":"e36afa88-e236-4a63-98ed-59b3ed863e65","t":"3 MINS UNTIL START OF FORMATION LAP, PLEASE CLEAR THE GRID","ts":632148844508000,"p":7},{"Id":"e9cb2dfc-8f45-4876-ab18-83ecdc90acb2","t":"1 MIN UNTIL START OF FORMATION LAP","ts":632148960946000,"p":7},{"Id":"4be6924b-fa85-4b48-b8c0-79274671d4e1","t":"30 SECS UNTIL START OF FORMATION LAP","ts":632148990602000,"p":7},{"Id":"889b3dcd-a116-416f-92d5-a0cbf503f827","t":"START OF FORMATION LAP","ts":632149021552000,"p":7},{"Id":"356766eb-2064-4a02-971f-6bcefdb79fca","t":"REMIND DRIVERS TO BE IN GRID POSITION AFTER TURN 29","ts":632149049427000,"p":7},{"Id":"cc8cba88-fb44-4bf8-abd8-fed74a2d7e43","t":"RACE START","ts":632149349458000,"p":7},{"Id":"72caf2af-fc74-4793-8761-0009f121cf68","t":"RACE START UNDER INVESTIGATION","ts":632149405912000,"p":7},{"Id":"7391a17f-21d3-4e4f-acac-8c78e2dec38e","t":"CAR 7 SPUN AND CONTINUED AT TURN 3","ts":632149462755000,"p":7},{"Id":"e512a4c3-ac81-4120-a80c-cd996c6a5657","t":"CAR 14 SPUN AND CONTINUED AT TURN 27","ts":632149567474000,"p":7},{"Id":"5fa629f7-0c0f-4a54-91fc-32dbf88cb74a","t":"PIT EXIT OPEN","ts":632149591521000,"p":7},{"Id":"64c7d80d-51c1-4e87-afb9-1c1feaad7a4c","t":"INCIDENT AT TURN 23 UNDER INVESTIGATION","ts":632149715481000,"p":7},{"Id":"b0c4ac12-3b42-4492-9c20-b0766c901875","t":"CAR 51 SPUN AND CONTINUED AT TURN 26","ts":632149783294000,"p":7},{"Id":"fb4ae182-f1e2-4845-9080-e760b4a18e29","t":"CONCERING THE START NO FURTHER ACTION AFTER INVESTIGATION","ts":632150155059000,"p":7},{"Id":"eaf6ff14-f630-4b15-a362-283d60bd0f2e","t":"CAR 75 SPUN AND CONTINUED AT TURN 26","ts":632150478116000,"p":7},{"Id":"4d4755b8-9188-42b4-a334-840120abf65b","t":"DEBRIS ON TRACK AT T23","ts":632150870333000,"p":7},{"Id":"cc2c8233-b1a0-41a0-b437-a5e27db1e31e","t":"PREPARE FOR FCY AT 13:30","ts":632150967505000,"p":7},{"Id":"c0ead62c-a8c4-44e3-9390-3b0db8f6d6c2","t":"FCY WILL END AT 13:36:30","ts":632151342067000,"p":7},{"Id":"dde4129b-ac5f-44ff-9213-69a5c72f19d1","t":"FCY SPEED UNDER INVESTIGATION","ts":632151554125000,"p":15},{"Id":"a763b69d-3525-4c1d-b43b-f6235600e6ea","t":"TEAM MANAGER CAR 3 IMMEDIATELY TO RACE CONTROL","ts":632151691141000,"p":7},{"Id":"1d912e7c-4ac1-4222-8ebf-abfd11babde9","t":"INCIDENT INVOLVING CAR 45 AND CAR 77 UNDER INVESTIGATION AT TURN 23","ts":632151723469000,"p":7},{"Id":"896d215e-5f9b-4ef1-8844-d8a736d22094","t":"CAR 25 SPUN AND CONTINUED AT TURN 27","ts":632151823813000,"p":7},{"Id":"2f5135ca-0f78-46db-8598-ecf8d203bbc1","t":"DRIVE THROUGH PENALTY - CAR 3 FOR OVERTAKING BEFORE THE END OF FCY","ts":632152375503000,"p":15},{"Id":"22b17d7f-50da-45b0-a43c-64f1b59dddef","t":"TEAM MANAGER CAR 45 IMMEDIATELY TO RACE CONTROL","ts":632152729557000,"p":7},{"Id":"e779a0ed-2981-4904-b8c5-c2695f248e9a","t":"TEAM MANAGER CAR 88 IMMEDIATELY TO RACE CONTROL","ts":632152994073000,"p":7},{"Id":"36512677-0ce4-4020-8f76-62d62d421cdc","t":"CAR 27 SPUN AND CONTINUED AT TURN 26","ts":632153035260000,"p":7},{"Id":"364d414b-adeb-478b-b103-0f70a6efb690","t":"CAR 22 SPUN AND CONTINUED AT TURN 27","ts":632153235301000,"p":7},{"Id":"e5fe094c-5bb2-4efa-b115-badcf7ba701c","t":"CAR 45 MUST REPAIR REAR LEFT LIGHT IN THEIR NEXT PIT STOP","ts":632153436426000,"p":7},{"Id":"a0359c56-08ff-49d8-852d-5cbae8105fcf","t":"DRIVE THROUGH PENALTY - CAR 45 FOR CAUSING A COLLISION WITH CAR 77","ts":632153623738000,"p":15},{"Id":"407cfbe3-5c84-4439-9fab-ad50a55549da","t":"Yellow flag at T14","ts":632153832481000,"p":7},{"Id":"c47803a1-ac35-4a8d-ba7f-88f8e01f5840","t":"CAR 3 STOPPED OFF TRACK AT TURN  ","ts":632153894043000,"p":7},{"Id":"feb55cad-0d89-41a6-9d12-ea3014d54eff","t":"PREPARE FOR FCY AT 14:20","ts":632153945684000,"p":7},{"Id":"bb28e683-5e16-4da9-9fe0-9721e90e035c","t":"FCY WILL END AT 14:26:30","ts":632154373481000,"p":7},{"Id":"b991ab66-1cea-4965-ba75-79123db034b3","t":"Yellow flag at T14","ts":632154391075000,"p":7},{"Id":"06574723-958f-4203-bc3b-c53e9ff4eb48","t":"DRIVE THROUGH PENALTY - CAR 88 FOR CAUSING COLLISION WITH CAR 17","ts":632154478420000,"p":15},{"Id":"fbcb6707-b2f6-452f-8332-c13f6da1dcca","t":"CAR 59 ON FIRE AT T34","ts":632154597842000,"p":7},{"Id":"bb129026-de77-4cd5-bc63-4bd32830e8ef","t":"PIT ENTRY CLOSED","ts":632154619123000,"p":7},{"Id":"53c146b7-7054-4675-9d12-3f344341f675","t":"PIT ENTRY CLOSED","ts":632154727795000,"p":7},{"Id":"541b515a-47fb-40e1-bca7-610ea0661792","t":"SAFETY CAR DEPLOYED","ts":632154764905000,"p":7},{"Id":"74eebc0f-5dc4-4d75-a7b3-7aa3b64689e7","t":"PIT ENTRY CLOSE","ts":632154829108000,"p":7},{"Id":"46f8826f-4cf2-4762-b16f-eeeaced7b1ca","t":"PREPARE FOR THE PASS AROUND","ts":632155467399000,"p":7},{"Id":"423e4d08-f995-474c-83c7-cccd066bfa8b","t":"START THE PASS AROUND","ts":632155518212000,"p":7},{"Id":"19bd34cc-8b11-4685-a2b8-a7b39c530b43","t":"TEAM MANAGER CAR 65 IMMEDIATELY TO RACE CONTROL","ts":632155587368000,"p":7},{"Id":"48b8aea4-1583-4e1c-9f9f-c30ec05ca0a8","t":"SC INSTUCTED TO GO FULL SPEED","ts":632155744007000,"p":7},{"Id":"f881d174-7d10-4616-9b0c-c4b1eb3540d6","t":"PIT ENTRY OPEN","ts":632155869929000,"p":7},{"Id":"20159c70-4317-4713-b9cc-8a0b89530c71","t":"PIT ENTRY OPEN","ts":632155938507000,"p":7},{"Id":"f07015e8-32de-4f8e-a15d-1ce833b26992","t":"SAFETY CAR IN THIS LAP","ts":632156069304000,"p":7},{"Id":"3f2f8aa8-764f-4b49-a31c-6d2da34bf044","t":"GREEN FLAG","ts":632156122273000,"p":7},{"Id":"6edc543a-dd43-4d54-b675-26f64d538e02","t":"TEAM MANAGER CAR 7 IMMEDIATELY TO RACE CONTROL","ts":632156229580000,"p":7},{"Id":"0a97668a-72d9-4c80-bcec-25fc4eb19237","t":"SAFETY CAR PROCEDURES UNDER INVESTIGATION","ts":632156543924000,"p":15},{"Id":"ba095824-bbbb-4a5f-b34c-bd6c51040044","t":"TEAM MANAGER CAR 36 IMMEDIATELY TO RACE CONTROL","ts":632156881712000,"p":7},{"Id":"0ce938e5-fba5-4929-a06e-65acfa55054e","t":"CAR 9 SPUN AND CONTINUED AT TURN 30","ts":632157051009000,"p":7},{"Id":"523360c8-6423-4854-a727-4d3a5c55ec25","t":"Yellow flag at T25","ts":632157908181000,"p":7},{"Id":"4ff13608-29d4-4c58-9e34-dedeb96aadc0","t":"PREPARE FOR FCY AT 15:26","ts":632157960966000,"p":7},{"Id":"e1bf7851-3636-40d6-9a2a-6e4ac4dca434","t":"CONTACT BETWEEN CAR 7 AND CAR 16 UNDER INVESTIGATION","ts":632157992103000,"p":7},{"Id":"c8bd2b50-96e1-43c3-b387-4a7ea2bd7f92","t":"FCY WILL END AT 15:32:30","ts":632158331765000,"p":7},{"Id":"c259e489-a0ce-4311-9498-d85157eac2a2","t":"Yellow flag at T22","ts":632158508890000,"p":7},{"Id":"1b22c41b-fc1b-43d4-be14-b9aa44482a2b","t":"DRIVE THROUGH PENALTY - CAR 7 FOR CONTACT WITH CAR 16","ts":632158647768000,"p":15},{"Id":"3efa31f0-e731-48ed-98b8-b3f16d596f37","t":"CAR 16 - DRIVER LU - MUST RESPECT TRACK LIMITS","ts":632160841065000,"p":7},{"Id":"d89687e3-e930-4027-9380-fc3affdd0474","t":"CAR 45 - DRIVER TINCKNELL - MUST RESPECT TRACK LIMITS","ts":632160858659000,"p":7},{"Id":"f61cb48b-c866-4792-bd92-f7b7c66e9262","t":"CAR 4 REPORTED TO THE STEWARDS FOR SPEEDING AT PIT ENTRY","ts":632161312996000,"p":15},{"Id":"90088fc5-1abc-421b-8f2d-fcdab72bc2c2","t":"CAR 65 SPUN AND CONTINUED AT TURN 26","ts":632161393355000,"p":7},{"Id":"778de388-3cb8-44ad-89f4-726b02bd7077","t":"DRIVE THROUGH PENALTY - CAR 4 FOR SPEEDING IN THE PIT LANE","ts":632161410855000,"p":15},{"Id":"8b1045c9-e2fe-4a75-aa21-35ebd58164c2","t":"CAR 16 SPUN AND CONTINUED AT TURN 11","ts":632161794495000,"p":7},{"Id":"d2794764-0370-41c7-9343-daf5b1e4bd8e","t":"CAR 65 - DRIVER KHOO - MUST RESPECT TRACK LIMIT","ts":632161961136000,"p":7},{"Id":"c239e1a7-5f2c-467b-a908-f51db43fdbc0","t":"CAR 16 - DRIVER ZHANG - MUST RESPECT TRACK LIMIT AT TURNS 9 AND 11","ts":632162013932000,"p":7},{"Id":"2057f131-91a6-4ffd-9fc2-b790547012a0","t":"TEAM MANAGER CAR 33 IMMEDIATELY TO RACE CONTROL","ts":632162167136000,"p":7},{"Id":"8a5b2d86-7d05-4b1b-a54e-1ad6529f3087","t":"CAR 9 CONTACT WITH GUARDRAIL AT TURN 17 AND CONTINUED","ts":632162230393000,"p":7},{"Id":"c637620c-8922-4510-952b-29e32138689c","t":"CAR 9 SLOW AFTER TURN 27","ts":632162272330000,"p":7},{"Id":"284f031d-d9fb-4462-a5e6-e1049277fc93","t":"CAR 9 STOPPED OFF TRACK AT TURN 30 ","ts":632162335846000,"p":7},{"Id":"5a0d4d99-bf86-463b-aa00-878c5f6c07d3","t":"Yellow flag at T30","ts":632162351502000,"p":7},{"Id":"85312d8b-4aec-4f3f-9d6b-1a83021a039e","t":"Yellow flag at T30, T16","ts":632162387955000,"p":7},{"Id":"da7dfeeb-abb6-48b8-9ecf-cc01d2810113","t":"PREPARE FOR FCY AT 16:40:30","ts":632162416658000,"p":7},{"Id":"179e9ed1-e2ee-49f3-aea0-161b1f2f8f59","t":"CAR 16 STOPPED OFF TRACK AT TURN 16 ","ts":632162549768000,"p":7},{"Id":"f6d93259-9c03-46b9-b12a-4126435171f9","t":"CAR 65 STOPPED OFF TRACK AT TURN 22 ","ts":632162747252000,"p":7},{"Id":"cd35b8bd-e3b4-4ec6-a738-848ae3a2abf8","t":"FCY WILL END AT 16:53","ts":632163160777000,"p":7},{"Id":"ecf77771-0516-4013-97be-4fce9dd6cad0","t":"CAR 1 SLOW AFTER TURN 34","ts":632163304933000,"p":7},{"Id":"de3e19fd-9c56-4253-95c5-7fcdbe18e692","t":"FINAL LAP","ts":632163912807000,"p":7},{"Id":"504b8173-7cb4-41d3-b326-f1e44b450c54","t":"CHEQUERED FLAG","ts":632164074555000,"p":7},{"Id":"b09ffed7-a261-450c-9e58-abc575012823","t":"CAR 26 INTO THE PITS UNER PODIUM","ts":632164083789000,"p":7},{"Id":"c6d9a2c4-f7fe-44a1-bb1d-47eab0374d73","t":"CARS 2 AND 52  WILL HAVE THE PARC FERME IN THEIR GARAGES","ts":632164093742000,"p":7},{"Id":"e06c7218-e28b-4a9a-844e-93a5c10a22cc","t":"ALL THE OTHER CARS WILL GO TO PARC FERME UNDER MARSHAL INSTRUCTIONS","ts":632164143586000,"p":7}]);
+
+
+        ltapp = new liveTiming.LiveTimingApp({"n":"demo","tid":"3e29af9ac4a14376a63b5e42540f8fd2","m":["Results","Tracker","Statistics","ScreenMessagesList","Creventic","Weather"],"cln":"CHI-SHANGHAI-F1","clp":"https://ltcircuits.azureedge.net/CHI-SHANGHAI-F1/circuitLayoutData.js?lm=1542283833","cli":[{"n":"circuit-dark.png","p":"https://ltcircuits.azureedge.net/CHI-SHANGHAI-F1/circuit-dark.png?lm=1574404303","w":1500,"h":1000},{"n":"circuit.png","p":"https://ltcircuits.azureedge.net/CHI-SHANGHAI-F1/circuit.png?lm=1574404303","w":1500,"h":1000}],"twtfn":null,"twtfid":null,"cu":"https://ltcdn.azureedge.net","ss":true,"dm":"5268766","ismob":false,"mobpagereq":false});
+
+                
+        var trackerGui = tsLib.getInstance("liveTiming.tracker.TrackerGui");
+        trackerGui.setTransponderStopsAtStopDistance(false);
+        var tracker = tsLib.getInstance("liveTiming.tracker.Tracker");
+        tracker.setRetiredAfterTime(40);
+        tracker.t_l(5451000);
+        tracker.t_i({"l":[[1733000,false],[3611000,false],[0,false],[341000,true],[-40000,true],[10,true]],"d":[[0,"36",1733000,3611000,1,43640.0,false,716508641904000],[1,"45",1733000,3611000,1,42067.0,false,716508586200000],[2,"26",1733000,3611000,1,43838.0,false,716508607966000],[3,"34",1733000,3611000,1,43300.0,false,716508624209000],[4,"96",3611000,5451000,2,52773.0,false,716508612996000],[5,"1",10,341000,-1,11111.0,true,716507105195000],[6,"4",341000,1733000,0,32626.0,true,716508622942000],[7,"59",3611000,5451000,2,47271.0,false,716508616264000],[8,"3",3611000,5451000,2,49490.0,false,716508616677000],[9,"33",1733000,3611000,1,40432.0,false,716508623835000],[10,"13",1733000,3611000,1,40846.0,false,716508616766000],[11,"2",0,1733000,0,39332.0,false,716508655495000],[12,"9",341000,1733000,0,31461.0,true,716508630687000],[13,"12",0,1733000,0,39829.0,false,716508626669000],[14,"27",1733000,3611000,1,39971.0,false,716508611983000],[15,"51",1733000,3611000,1,39681.0,false,716508658381000],[16,"77",3611000,5451000,2,48780.0,false,716508657973000],[17,"65",1733000,3611000,1,39842.0,false,716508595561000],[18,"7",1733000,3611000,1,39506.0,false,716508643435000],[19,"90",3611000,5451000,2,48234.0,false,716508256487000],[20,"75",1733000,3611000,1,39216.0,false,716508588881000],[21,"88",3611000,5451000,2,48735.0,false,716508642965000],[22,"17",1733000,3611000,1,39424.0,false,716508653519000],[23,"52",3611000,5451000,2,50132.0,false,716508669404000]],"c":[{"n":"LMP2","id":0,"fc":16777215,"bc":8388608},{"n":"LMP3","id":1,"fc":16777215,"bc":8261503},{"n":"LMP2 AM","id":2,"fc":8388608,"bc":16777215},{"n":"GT","id":3,"fc":16777215,"bc":811446}],"s":{"1":0,"2":1,"3":1,"4":2,"7":3,"9":1,"12":1,"13":1,"17":3,"26":0,"27":3,"33":0,"34":0,"36":0,"45":0,"51":3,"52":2,"59":2,"65":1,"75":3,"77":3,"88":3,"90":3,"96":0},"a":1});
+
+    };
+
+    tsApploader.start(null, onReady);
+</script>
+
+<script type='text/javascript'>
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-28134348-5']);
+    _gaq.push(['_anonymizeIp']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+        function startGa () {
+            //livetiming waits for the page to be fully loaded. Use window.onload for ga so loading ga does not delay the livetiming.
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+            
+            function gaHeartbeat() {
+                _gaq.push(['_trackEvent', 'Heartbeat', 'Heartbeat']);
+                setTimeout(gaHeartbeat, 1000 * 60 * 4.2);
+            }
+            setTimeout(gaHeartbeat, 1000 * 60 * 4.2); // elke 4min12sec
+        }
+
+        if (typeof(jQuery) === "undefined") {
+            startGa();
+        }
+        else {
+            $(window).load(startGa);
+        }
+
+        window.GaqTrackPageView = function () {
+            try {
+                _gaq.push(['_trackPageview', location.pathname + location.search + location.hash]);
+            }
+            catch(e) {}
+        };
+        
+        window.GaqTrackEvent = function (eventCategory, eventAction) {
+            try {
+                _gaq.push(['_trackEvent', eventCategory, eventAction]);
+            }
+            catch (e) { }
+        };
+    })();
+</script></head>
+    <body>
+        <div id="appContent" style="height: 100%;">
+
+
+<section id="liveTimingApp" class="theme-dark">
+<header id="header">
+    <div class="rightAlign">
+        <div>
+            <small id="copyright">© 2022<br/>Time Service B.V.</small>
+        </div>
+        <div class="companyLogo">
+                <a href="http://www.timeservice.nl">
+                    <div class="companyLogoImg"></div>
+                </a>
+        </div>
+    </div>
+
+    <nav>
+            <a href="#screen-results">Results</a>
+                    <a href="#screen-tracker">Tracker</a>
+                    <a href="#screen-stats">Statistics</a>
+                    <a href="#screen-mesglist">Messages</a>
+                    <a href="#screen-weather">Weather</a>
+                    </nav>
+
+
+    <div id="timeTimekeeper" data-bind="visible: timeTimekeeper() != null" style="display: none;">
+        <div>Local time</div>
+        <div data-bind="text: timeTimekeeper"></div>
+    </div>
+    <div id="pageInfo">
+            
+        <div>
+            <div id="pageInfoTimeHeader">Page updated</div>
+            <div id="pageInfoWebServerTime">20:11:09 (UTC)</div>
+        </div>
+            
+            </div>
+    </header>
+
+<div id="connectionStatus" class="notificationBar" style="display: none">
+        <div class="ui-state-highlight" data-bind="visible: !isConnected() || !initialDataReceived()" style="display: none">
+            <div data-bind="visible: !isConnected() && connectionStatus() === $.signalR.connectionState.disconnected"><p><span class="ui-icon ui-icon-info"></span>Not connected to the LiveTiming server.</p></div>
+            <div data-bind="visible: !isConnected() && connectionStatus() === $.signalR.connectionState.reconnecting"><p><span class="ui-icon ui-icon-info"></span>Trying to reconnect to the LiveTiming server...</p></div>
+            <div data-bind="visible: !isConnected() && connectionStatus() === $.signalR.connectionState.connecting"><p><span class="ui-icon ui-icon-info"></span>Connecting to the LiveTiming server...</p></div>
+            <div data-bind="visible: isConnected() && !initialDataReceived()"><p><span class="ui-icon ui-icon-info"></span>Waiting for the LiveTiming data...</p></div>
+        </div>
+    </div>
+
+    <div id="pageWarning" class="notificationBar" style="display: none">
+        <div class="ui-state-error">
+            <div><p><span class="ui-icon ui-icon-alert"></span>We have detected a problem with the results displayed on your page. Please reload the page.&nbsp;&nbsp;<button id="buttonPageWarningReload">Reload</button></p></div>
+        </div>
+    </div>
+
+    <div class="notificationBar" id="heatStateNotificationBar" style="display: none">
+        <div class="ui-state-highlight" data-bind="visible: heatName() === null" style="display: none">
+            <div><p><span class="ui-icon ui-icon-info"></span>No active heat</p></div>
+        </div>
+    </div>
+
+<div class="heatState" id="heatState" data-bind="visible: tsLib.getInstance('liveTiming.viewModel.HeatStateViewModel').heatName() != null" style="display: none">
+    <div class="flag" style="float: right; margin-right: 0">
+        <div data-bind="text: flagText, flagColor: flag">&nbsp;</div>
+    </div>
+    <div class="flag" data-bind="visible: flag() != 6">
+        <div data-bind="text: flagText, flagColor: flag">&nbsp;</div>
+    </div>
+    <div class="clock" data-bind="visible: clockText() != ''">
+        <span data-bind="visible: clockPrefixText() !== ''"><span data-bind="text: clockPrefixText"></span>: </span><span data-bind="text: clockText"></span>
+    </div>
+    <div class="heatName">
+        <div data-bind="text: heatName"></div>
+    </div>
+</div>
+    
+    <div id="screenMessages">
+        <div data-bind="visible: line1() != null, with: line1" style="display: none">
+            <div data-bind="css: { msgFixed: modality() === 0, msgTicker: modality() === 1, msgBlink: modality() === 2 }, style: { color: fontColor(), backgroundColor: backgroundColor() }">
+                <div data-bind="text: messageText"></div>
+            </div>
+        </div>
+        <div data-bind="visible: line2() != null, with: line2" style="display: none">
+            <div data-bind="css: { msgFixed: modality() === 0, msgTicker: modality() === 1, msgBlink: modality() === 2 }, style: { color: fontColor(), backgroundColor: backgroundColor() }">
+                <div data-bind="text: messageText"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contentContainer">
+    <section id="content">
+        <section id="liveTimingLoadingMessage" class="screen" style="display: block;">
+            Loading the live timing website...
+            <p>
+                Visit the <a href="/help">Help page</a> for more information.
+            </p>
+        </section>
+            <section id="screen-results" class="screen">
+                <div class="raceResults">
+    <div class="optionsContainer"></div>
+    <table class="resultsGrid" data-bind="visible: tsLib.getInstance('liveTiming.viewModel.HeatStateViewModel').heatName() != null">
+        <caption>
+            <div class="noLayout" data-bind="visible: !hasHeaders()">
+                No results layout available.
+            </div>
+        </caption>
+        <thead></thead>
+        <tbody data-bind="visible: hasHeaders"></tbody>
+    </table>
+</div>
+            </section>
+                    <section id="screen-tracker" class="screen">
+                
+<div class="tracker">
+    <div class="header">
+        <div class="buttons">
+            <button class="showNbrButton">Show Nbr.</button>
+            <button class="legendButton">Follow & Legend</button>
+            <button class="pitInfoButton">In Pit (<span data-bind="text: transponders().length"></span>)</button>
+            <button class="retirementsButton">Missing (<span data-bind="text: retirements().length"></span>)</button>
+        </div>
+        
+        <div class="trackerLegend trackerDialog">
+            <div class="highlightAction">
+                <span>Follow start number</span>
+                <input tabindex="0" value="" class="unused" type="text">
+                <a tabindex="1">On/Off</a>
+            </div>
+            <table class="classes">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Class</th>
+                        <th>Show</th>
+                        <th>Follow</th>
+                    </tr>
+                </thead>
+                <tbody id="trLegendItems"></tbody>
+            </table>
+            <table class="info">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="loop sfLoop"></div></td>
+                        <td>S/F</td>
+                    </tr>
+                    <tr>
+                        <td><div class="loop"></div></td>
+                        <td>Sector loop</td>
+                    </tr>
+                    <tr>
+                    <td><div class="loop pitLoop"></div></td>
+                        <td>Pit loop</td>
+                    </tr>
+                    <tr>
+                        <td><div class="transLeader">1</div></td>
+                        <td>Leader</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="shortcuts">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Shortcuts</th>
+                            <th>Keys</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Show all start numbers</td>
+                            <td>Caps Lock</td>
+                        </tr>
+                        <tr>
+                            <td>Follow start number</td>
+                            <td>Shift + f</td>
+                        </tr>
+                        <tr>
+                            <td>Close menu (when active)</td>
+                            <td>Esc</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="trackerPitInfo trackerDialog">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Entered pit at</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: transponders">
+                    <tr>
+                        <td data-bind="text: startNumber"></td>
+                        <td data-bind="text: lastPassingTime"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="trackerRetirements trackerDialog">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Last seen</th>
+                        <th>In sector</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: retirements">
+                    <tr>
+                        <td data-bind="text: startNumber"></td>
+                        <td data-bind="text: lastPassingTime"></td>
+                        <td data-bind="text: sector"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="trackItems">
+        <img class="trackImg" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==" />
+    </div>
+    
+    <div class="footer"></div>
+</div>
+
+            </section>
+                    <section id="screen-stats" class="screen">
+                <div id="stats">
+    <div data-bind="visible: heatName() === ''">
+        No statistics available at this moment.
+    </div>
+    <div data-bind="visible: heatName() !== ''">
+        <section class="heatSection">
+            <div class="tOne">
+                <div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>Heat name</td>
+                            <td><span data-bind="text: heatName"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Heat started at</td>
+                            <td><span data-bind="text: greenFlagTime"></span></td>
+                        </tr>
+                        <!-- ko if: finishFlagTimeIsAfterGreenFlagTime() -->
+                        <tr>
+                            <td>Finished flag waved at</td>
+                            <td><span data-bind="text: finishFlagTime"></span></td>
+                        </tr>
+                        <!-- /ko -->
+                        <tr>
+                            <td>Participants started</td>
+                            <td><span data-bind="text: participantsStarted"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total laps by all participants</td>
+                            <td><span data-bind="text: totalHeatLapsCount"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total pitstops by all participants</td>
+                            <td><span data-bind="text: totalPitStopsCount"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                    <div class="stats_logo"><a href="http://www.timeservice.nl"><div></div></a></div>
+            </div>
+            <div data-bind="visible: heatState.heatMode() !== 0">
+                <table>
+                    <tbody>
+                        <!-- ko if: !finishFlagTimeIsAfterGreenFlagTime() -->
+                        <tr><td style="padding: 0; height: 0; visibility: hidden;"></td></tr>
+                        <!-- /ko -->
+                        <tr>
+                            <td>Total laps by leader</td>
+                            <td><span data-bind="text: totalLapsByLeader"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total laps under green flag by leader</td>
+                            <td><span data-bind="text: greenFlagLapCount"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total laps under safety car by leader</td>
+                            <td><span data-bind="text: yellowFlagLapCount"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total laps under full course yellow by leader</td>
+                            <td><span data-bind="text: fullCourseYellowLapCount"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total laps under code 60 by leader</td>
+                            <td><span data-bind="text: purpleFlagLapCount"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+ 
+            <div class="identedTables">
+                <table>
+                    <tbody>
+                        <!-- ko if: finishFlagTimeIsAfterGreenFlagTime() -->
+                        <tr><td style="padding: 0; height: 0; visibility: hidden;"></td></tr>
+                        <!-- /ko -->
+                        <tr>
+                            <td>Number of safety cars</td>
+                            <td><span data-bind="text: cautionsCount"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Number of full course yellows</td>
+                            <td><span data-bind="text: fullCourseYellowCount"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Number of code 60's</td>
+                            <td><span data-bind="text: code60sCount"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table>
+                    <tbody>
+                        <!-- ko if: finishFlagTimeIsAfterGreenFlagTime() -->
+                        <tr><td style="padding: 0; height: 0; visibility: hidden;"></td></tr>
+                        <!-- /ko -->
+                        <tr>
+                            <td>Total time under safety car</td>
+                            <td><span data-bind="text: yellowFlagTotalTime"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total time under full course yellow</td>
+                            <td><span data-bind="text: fullCourseYellowTotalTime"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total time under code 60</td>
+                            <td><span data-bind="text: code60TotalTime"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="leaderHistorySection" data-bind="visible: leaderHistory().length > 0 && heatState.heatMode() !== 0">
+            <h1>Leader history</h1>
+            <div class="scrollArea">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="lap">From lap</th>
+                            <th class="lap">To lap</th>
+                            <th class="nbr">Nbr</th>
+                            <th class="name"><span data-bind="text: $root.tableHeaderTeamName"></span></th>
+                            <th class="name driver">Driver</th>
+                            <th class="car">Vehicle</th>
+                            <th class="i">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ko foreach: leaderHistory -->
+                        <tr>
+                            <td class="lap"><span data-bind="text: f"></span></td>
+                            <td class="lap"><span data-bind="text: l"></span></td>
+                            <td class="nbr"><span data-bind="text: s"></span></td>
+                            <td class="name"><span data-bind="text: n"></span></td>
+                            <td class="name driver"><span data-bind="text: d"></span></td>
+                            <td class="car"><span data-bind="text: c"></span></td>
+                            <td class="i"><span data-bind="text: $parent.leaderHistory().length - $index()"></span></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+                <section class="bestLapHistorySection"  data-bind="visible: bestLapHistory().length > 0">
+            <h1>Best lap history</h1>
+            <div class="scrollArea">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="time">Time of day</th>
+                            <th class="time">Lap time</th>
+                            <th class="lap">In lap</th>
+                            <th class="nbr">Nbr</th>
+                            <th class="name"><span data-bind="text: $root.tableHeaderTeamName"></span></th>
+                            <th class="name driver">Driver</th>
+                            <th class="car">Vehicle</th>
+                            <th class="time">Avg speed (km/h)</th>
+                            <th class="i">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ko foreach: bestLapHistory -->
+                        <tr>
+                            <td class="time"><span data-bind="text: t"></span></td>
+                            <td class="time"><span data-bind="text: i"></span></td>
+                            <td class="lap"><span data-bind="text: r"></span></td>
+                            <td class="nbr"><span data-bind="text: s"></span></td>
+                            <td class="name"><span data-bind="text: n"></span></td>
+                            <td class="name driver"><span data-bind="text: d"></span></td>
+                            <td class="car"><span data-bind="text: c"></span></td>
+                            <td class="time"><span data-bind="text: a"></span></td>
+                            <td class="i"><span data-bind="text: $parent.bestLapHistory().length - $index()"></span></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+                <section class="bestLapPerClassSection"  data-bind="visible: bestLapPerClass().length > 0">
+            <h1>Best lap per class</h1>
+            <div class="scrollArea">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="className">Class</th>
+                            <th class="time">Lap time</th>
+                            <th class="lap">In lap</th>
+                            <th class="nbr">Nbr</th>
+                            <th class="name"><span data-bind="text: $root.tableHeaderTeamName"></span></th>
+                            <th class="name driver">Driver</th>
+                            <th class="car">Vehicle</th>
+                            <th class="time">Time of day</th>
+                            <th class="time">Avg speed (km/h)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ko foreach: bestLapPerClassSorted -->
+                        <tr>
+                            <td class="className"><span data-bind="text: m"></span></td>
+                            <td class="time"><span data-bind="text: i"></span></td>
+                            <td class="lap"><span data-bind="text: r"></span></td>
+                            <td class="nbr"><span data-bind="text: s"></span></td>
+                            <td class="name"><span data-bind="text: n"></span></td>
+                            <td class="name driver"><span data-bind="text: d"></span></td>
+                            <td class="car"><span data-bind="text: c"></span></td>
+                            <td class="time"><span data-bind="text: t"></span></td>
+                            <td  class="time"><span data-bind="text: a"></span></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+                <section class="aggregatedLeaderLapsSection"  data-bind="visible: aggregatedLeaderLaps().length > 0">
+            <h1>Aggregated leader laps</h1>
+            <div class="scrollArea">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="lap">Laps</th>
+                            <th class="nbr">Nbr</th>
+                            <th class="name"><span data-bind="text: $root.tableHeaderTeamName"></span></th>
+                            <th class="car">Vehicle</th>
+                            <th class="i">#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ko foreach: aggregatedLeaderLaps -->
+                        <tr>
+                            <td class="lap"><span data-bind="text: e"></span></td>
+                            <td class="nbr"><span data-bind="text: s"></span></td>
+                            <td class="name"><span data-bind="text: n"></span></td>
+                            <td class="car"><span data-bind="text: c"></span></td>
+                            <td class="i"><span data-bind="text: $index() + 1"></span></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+                <section class="flagHistorySection" data-bind="visible: flagHistory().length > 0">
+            <h1>Cautions history</h1>
+            <div class="scrollArea">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="i">#</th>
+                            <th class="flag">Flag</th>
+                            <th class="time">From</th>
+                            <th class="time">To</th>
+                            <th class="nbr">Clock stopped?</th>
+                            <th class="remark">Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ko foreach: flagHistory -->
+                        <tr>
+                            <td class="i"><span data-bind="text: $parent.flagHistoryCount - $index()"></span></td>
+                            <td class="flag"><div data-bind="flagColor: k, text: k() === 3 ? 'SC' : (k() === 7 ? 'FCY' : '&nbsp;')"></div></td>
+                            <td class="time"><span data-bind="text: f"></span></td>
+                            <td class="time"><span data-bind="text: t"></span></td>
+                            <td class="nbr"><span data-bind="text: s() === '1' ? 'yes' : 'no'"></span></td>
+                            <td class="remark"><span data-bind="html: r"></span></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        </div>
+</div>
+
+            </section>
+                    <div id="screenMessagesList">
+                <section id="screen-mesglist" class="screen">
+                     <section class="screenMessagesList">
+    <table class="screenMessagesList">
+        <thead>
+            <tr>
+                <th onclick="window.liveTiming.screenMessagesList.screenMessagesListViewModel.sortMessages('time');">Time</th>
+                <th onclick="window.liveTiming.screenMessagesList.screenMessagesListViewModel.sortMessages('publishedOn');"></th>
+                <th onclick="window.liveTiming.screenMessagesList.screenMessagesListViewModel.sortMessages('text');">Message</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: messages">
+            <tr>
+                <td data-bind="text: tsLib.convertTsTimeToDateTimeString(time())"></td>
+                <td data-bind="text: (publishedOn() & 8) === 8 ? 'Penalty' : ''"></td>
+                <td data-bind="text: text"></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+                </section>
+            </div>
+                    <section id="screen-weather" class="screen">
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+<script type="text/javascript">
+    chartColors = {
+        red: 'rgb(255, 99, 132)',
+        orange: 'rgb(255, 159, 64)',
+        yellow: 'rgb(255, 205, 86)',
+        green: 'rgb(75, 192, 192)',
+        blue: 'rgb(54, 162, 235)',
+        purple: 'rgb(153, 102, 255)',
+        grey: 'rgb(201, 203, 207)'
+    };
+    Chart.plugins.register({
+        afterDraw: function(chart) {
+            if (chart.data.labels.length === 0 ||
+                chart.data.datasets.length === 0 ||
+                chart.data.datasets[0].data.length === 0) {
+                // No data is present
+                var ctx = chart.chart.ctx;
+                var width = chart.chart.width;
+                var height = chart.chart.height;
+                chart.clear();
+
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.font = "16px normal 'Helvetica Nueue'";
+                ctx.fillText('No data to display', width / 2, height / 2);
+                ctx.restore();
+            }
+        }
+    });
+
+    function getTheme() {
+        return liveTiming.liveTimingApp == null ? $("body").attr("class") : liveTiming.liveTimingApp.getTheme();
+    }
+
+    function changeChartThemeColors() {
+        if (chartTrackTemp == null) return;
+        var fontColor = "#eee";
+        var gridLinesColor = "#999";
+        var theme = getTheme();
+        if (theme == "theme-light") {
+            fontColor = '#222';
+            gridLinesColor = null;
+        }
+
+        Chart.defaults.global.defaultFontColor = fontColor;
+        chartTrackTemp.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartTrackTemp.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        
+        chartTrackTemp.update();
+        chartAirTemp.update();
+        chartAirTemp.update();
+        chartHumidity.update();
+        chartRainRate.update();
+        chartRainFall.update();
+        chartAirPress.update();
+        chartWindDirection.update();
+        chartWindSpeed.update();
+        debug('changed theme colors');
+    }
+
+    //Chart.defaults.global.defaultFontColor = 'rgba(0, 0, 0, 0.1)';
+    Chart.defaults.global.defaultFontFamily = "sans-serif";
+    Chart.defaults.global.defaultFontSize = 12;
+    Chart.defaults.global.defaultFontStyle = 'normal';
+
+    var weatherViewModel,
+        chartTrackTemp,
+        chartAirTemp,
+        chartHumidity,
+        chartRainRate,
+        chartRainFall,
+        chartAirPress,
+        chartWindDirection,
+        chartWindSpeed;
+    var labels = [],
+        trackTempData = [],
+        airTempData = [],
+        humidityData = [],
+        rainRateData = [],
+        rainFallData = [],
+        airPressData = [],
+        windDirectionData = [],
+        windSpeedData = [];
+
+    function updateChartThemeColors() {
+        if (chartTrackTemp == null) return;
+        var fontColor = "#eee";
+        var gridLinesColor = "#3b3b3b";
+        var theme = getTheme();
+        if (theme == "theme-light") {
+            fontColor = '#222';
+            gridLinesColor = "#ddd";
+        }
+
+        Chart.defaults.global.defaultFontColor = fontColor;
+        chartTrackTemp.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartTrackTemp.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        chartAirTemp.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartAirTemp.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        chartHumidity.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartHumidity.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        chartRainRate.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartRainRate.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        chartRainFall.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartRainFall.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        chartAirPress.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartAirPress.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        chartWindDirection.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartWindDirection.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+        chartWindSpeed.options.scales.yAxes[0].gridLines.color = gridLinesColor;
+        chartWindSpeed.options.scales.xAxes[0].gridLines.color = gridLinesColor;
+
+        chartTrackTemp.update();
+        chartAirTemp.update();
+        chartHumidity.update();
+        chartRainRate.update();
+        chartRainFall.update();
+        chartAirPress.update();
+        chartWindDirection.update();
+        chartWindSpeed.update();
+        debug('changed theme colors');
+    }
+
+    function clearChartData() {
+        labels.length = 0;
+        trackTempData.length = 0;
+        airTempData.length = 0;
+        humidityData.length = 0;
+        rainRateData.length = 0;
+        rainFallData.length = 0;
+        airPressData.length = 0;
+        windDirectionData.length = 0;
+        windSpeedData.length = 0;
+    };
+
+    function updateChartData(listOrSingle) {
+        var list = Array.isArray(listOrSingle) ? listOrSingle : [listOrSingle];
+        for (var i = 0; i < list.length; i++) {
+            var wd = list[i];
+            var timeRecorded = tsLib.convertTsTimeToTimeString(wd.z, 0, 0, false).substr(0, 5);
+            labels.push(timeRecorded);
+            trackTempData.push(wd.t / 100);
+            airTempData.push(wd.a / 100);
+            humidityData.push(wd.h);
+            rainRateData.push(wd.m);
+            rainFallData.push(wd.r);
+            airPressData.push(wd.p);
+            windDirectionData.push(weatherViewModel.getWindCardinalDirection(wd.d));
+            windSpeedData.push(wd.s);
+        }
+    };
+
+    function createChart(ctx, label, color, data, showLine, ticksSuggestedMin, ticksStepSize, yAxeLabels) {
+        var config = {
+            type: 'line',
+            data:
+            {
+                labels: labels,
+                datasets: [
+                    {
+                        showLine: !(showLine === false),
+                        label: label,
+                        backgroundColor: color,
+                        borderColor: color,
+                        data: data,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    display: true
+                },
+                scales: {
+                    yAxes: [
+                        {
+                            type: 'linear',
+                            ticks: {},
+                            gridLines: {
+                                //color: '#999',
+                                //lineWidth: 0.1
+                            }
+                        }
+                    ],
+                    xAxes: [
+                        {
+                            type: 'category',
+                            ticks: {
+                                source: 'data'
+                            },
+                            gridLines: {
+                                //color: '#999',
+                                //lineWidth: 0.1
+                            }
+                        }
+                    ]
+                },
+                elements: {
+                    line: {
+                        tension: 0 // disables bezier curves
+                    }
+                }
+            }
+        };
+        if (ticksSuggestedMin != null) config.options.scales.yAxes[0].ticks.suggestedMin = ticksSuggestedMin;
+        if (ticksStepSize != null) config.options.scales.yAxes[0].ticks.stepSize = ticksStepSize;
+        if (yAxeLabels) {
+            config.options.scales.yAxes[0].type = 'category';
+            //config.data.datasets[0].data = null;
+            config.options.scales.yAxes[0].labels = yAxeLabels;
+        }
+        return new Chart(ctx, config);
+    };
+
+    function createCharts() {
+        chartTrackTemp = createChart($("#chartTrackTemp"), 'Track Temp °C', chartColors.red, trackTempData);
+        chartAirTemp = createChart($("#chartAirTemp"), 'Air Temp °C', chartColors.blue, airTempData);
+        chartRainRate = createChart($("#chartRainRate"), 'Rain Rate mm/h', chartColors.green, rainRateData, null, 0);
+        chartRainFall = createChart($("#chartRainFall"), 'Daily rain mm', chartColors.purple, rainFallData, null, 0);
+        chartHumidity = createChart($("#chartHumidity"), 'Humidity %', chartColors.grey, humidityData);
+        chartAirPress = createChart($("#chartAirPress"), 'Air Press mb', chartColors.orange, airPressData);
+        chartWindDirection = createChart($("#chartWindDirection"),
+            'Wind Direction',
+            chartColors.green,
+            windDirectionData,
+            null,
+            null,
+            null,
+            ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW']);
+        chartWindSpeed = createChart($("#chartWindSpeed"), 'Wind Speed m/s', chartColors.yellow, windSpeedData);
+    };
+
+    function updateCharts(data) {
+        if (Array.isArray(data)) clearChartData();
+        updateChartData(data);
+        if (chartTrackTemp == null) createCharts();
+        else {
+            chartTrackTemp.update();
+            chartAirTemp.update();
+            chartRainRate.update();
+            chartRainFall.update();
+            chartHumidity.update();
+            chartAirPress.update();
+            chartWindDirection.update();
+            chartWindSpeed.update();
+        }
+    };
+
+    var isInitialized = false;
+    function initCharts() {
+        if (isInitialized) return;
+        isInitialized = true;
+        weatherViewModel = tsLib.getInstance("liveTiming.weather.WeatherViewModel");
+        createCharts();
+        weatherViewModel.setGraphUpdatedListener(updateCharts);
+        $("#weatherDataLoadAll").button({ icon: 'ui-icon-circle-arrow-s' });
+        $("#weatherDataLoadAll").on("click",
+            function() {
+                if (weatherViewModel.isInitialized) {
+                    weatherViewModel.loadAllData();
+                    $(this).button("disable");
+                    $(this).button("refresh");
+                    $(this).removeClass(
+                        'ui-state-focus ui-state-hover ui-state-active'); // because "refresh" does not work...
+                }
+            });
+        $("#liveTimingApp").on("themeChanged", updateChartThemeColors);
+        updateChartThemeColors();
+    };
+</script>
+
+<section class="weatherView" id="weatherView" data-bind="template: { afterRender: initCharts }">
+    <section class="currentWeather">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div>Track temp.: <span data-bind="text: trackTemp"></span> °C</div>
+                    </td>
+                    <td>
+                        <div>Air temp.: <span data-bind="text: airTemp"></span> °C</div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Rain rate: <span data-bind="text: rainRate"></span> mm/h</div>
+                    </td>
+                    <td>
+                        <div>Daily rain: <span data-bind="text: rainFall"></span> mm</div>
+                    </td>
+                    <td>
+                        <div>Humidity: <span data-bind="text: humidity"></span> %</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>Wind speed: <span data-bind="text: windSpeed"></span> m/s</div>
+                    </td>
+                    <td>
+                        <div>Wind direction: <span data-bind="text: windCardinalDirection"></span> (<span data-bind="text: windDirectionDegrees"></span> degrees)</div>
+                    </td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </section>
+
+    <section class="charts">
+        <div class="buttonContainer"><button id="weatherDataLoadAll">Load historical data (>2 hours ago)</button></div>
+        <div class="chartContainer">
+            <canvas id="chartTrackTemp"></canvas>
+        </div>
+
+        <div class="chartContainer">
+            <canvas id="chartAirTemp"></canvas>
+        </div>
+
+        <div class="chartContainer">
+            <canvas id="chartRainRate"></canvas>
+        </div>
+
+        <div class="chartContainer">
+            <canvas id="chartRainFall"></canvas>
+        </div>
+
+        <div class="chartContainer">
+            <canvas id="chartHumidity"></canvas>
+        </div>
+
+        <div class="chartContainer">
+            <canvas id="chartAirPress"></canvas>
+        </div>
+
+        <div class="chartContainer">
+            <canvas id="chartWindSpeed"></canvas>
+        </div>
+
+        <div class="chartContainer">
+            <canvas id="chartWindDirection"></canvas>
+        </div>
+    </section>
+</section>
+
+            </section>
+                    </section>
+            <div class="external-content-container external-content-container-demo"><img src="https://ltcdn.azureedge.net/Img/demobanner$2F9CF09E14468212B36EF7CCC82D7ADC$.jpg" alt="" /></div></section>
+</div>
+    </body></html>
